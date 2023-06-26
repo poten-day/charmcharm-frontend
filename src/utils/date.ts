@@ -27,5 +27,9 @@ export const updateTitleByTime = (targetTime: string) => {
     return '시간이 얼마 남지 않았어요';
   }
 
+  if (diffTime(targetTime, currentTime) <= 0) {
+    return '제한시간이 종료되었어요';
+  }
+
   return '아직 설문조사 진행중-!';
 };
