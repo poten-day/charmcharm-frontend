@@ -1,7 +1,20 @@
-import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { getCharmers } from '@/api';
 
 const CountdownArea = () => {
-  const location = useLocation();
+  const id = window.location.pathname;
+  const { data } = useQuery({ queryKey: ['user', id], queryFn: () => getCharmers(id) });
+
+  const [finishedTime, setFinishedTime] = useState('');
+  const [timer, setTimer] = useState('');
+
+  useEffect(() => {
+    if (data) {
+      setTimer(data.openTime);
+      setFinishedTime(data.openTime);
+    }
+  }, [data]);
 
   return (
     <div>
