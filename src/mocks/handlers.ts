@@ -1,7 +1,8 @@
 import { rest } from 'msw';
 import dayjs from 'dayjs';
+import { CharmersDefaultType } from '@/api/types';
 
-const MOCK_USER_DATA = [
+const MOCK_USER_DATA: CharmersDefaultType[] = [
   {
     name: 'dobby',
     openTime: '2023-06-27T01:47:00.000000',

@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useMutation } from '@tanstack/react-query';
+import { postCharmers } from '@/api';
 
 const MAX_LENGTH = 5;
 
 const StartForm = () => {
+  const navigator = useNavigate();
+  const { data, isSuccess, mutate } = useMutation(postCharmers);
   const [name, setName] = useState('');
+
+  const onClickButton = () => mutate(name);
 
   const inputTyping = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.value.length > MAX_LENGTH) {
@@ -13,6 +20,13 @@ const StartForm = () => {
   };
 
   const isDisabled = name === '';
+
+  useEffect(() => {
+    if (data && isSuccess) {
+      const url = new URL(data.shareLink);
+      navigator(url.pathname);
+    }
+  }, [data, isSuccess]);
 
   return (
     <form className="flex flex-col">
@@ -26,7 +40,7 @@ const StartForm = () => {
         maxLength={MAX_LENGTH}
         onChange={inputTyping}
       />
-      <button type="button" disabled={isDisabled}>
+      <button type="button" disabled={isDisabled} onClick={onClickButton}>
         시작하기
       </button>
     </form>
