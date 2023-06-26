@@ -1,7 +1,8 @@
 import dayjs from 'dayjs';
 
-export const diffTime = (targetTime: number) => {
+export const diffTime = (targetTime: string) => {
   const openTime = dayjs(targetTime);
-  const now = dayjs(new Date());
-  return openTime.diff(now);
+  const currentTime = dayjs(new Date());
+  return openTime.diff(currentTime);
+};
 };
