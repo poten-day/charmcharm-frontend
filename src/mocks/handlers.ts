@@ -1,5 +1,6 @@
 import { rest } from 'msw';
 import dayjs from 'dayjs';
+import { diffTime } from '@/utils/date';
 import { CharmersDefaultType } from '@/api/types';
 
 const MOCK_USER_DATA: CharmersDefaultType[] = [
@@ -26,5 +27,24 @@ export const handlers = [
     };
     MOCK_USER_DATA.push(responseData);
     return res(ctx.status(200), ctx.json(responseData));
+  }),
+
+  rest.get('/api/charmers/:id', async (req, res, ctx) => {
+    const { id } = req.params;
+    const findData = MOCK_USER_DATA.find((el) => el.shareLink.includes(id as string));
+
+    const isFinished = (time: string) => (diffTime(time, new Date()) < 0 ? true : false);
+
+    if (findData) {
+      return res(
+        ctx.status(200),
+        ctx.json({ ...findData, finished: isFinished(findData.openTime) })
+      );
+    }
+
+    return res(
+      ctx.status(200),
+      ctx.json({ ...MOCK_USER_DATA[0], finished: isFinished(MOCK_USER_DATA[0].shareLink) })
+    );
   }),
 ];
