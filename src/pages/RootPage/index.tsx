@@ -12,6 +12,8 @@ const RootPage = () => {
     setInputValue(e.target.value);
   };
 
+  const isDisabled = inputValue === '';
+
   return (
     <div>
       <div>로고</div>
@@ -26,7 +28,9 @@ const RootPage = () => {
           placeholder="이름을 입력해주세요"
           onChange={inputTyping}
         />
-        <button type="button">시작하기</button>
+        <button type="button" disabled={isDisabled}>
+          시작하기
+        </button>
       </form>
     </div>
   );
