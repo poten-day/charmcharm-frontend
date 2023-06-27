@@ -1,10 +1,10 @@
 import dayjs from 'dayjs';
 import { diffTime } from '@/utils/date';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useTimeStore } from '@/store/useTimeStore';
 
 const useSetTime = () => {
-  const [finishedTime, setFinishedTime] = useState('');
-  const [timer, setTimer] = useState(0);
+  const { finishedTime, setFinishedTime, timer, setTimer } = useTimeStore();
 
   const setTimes = (targetTime: string) => {
     const diff = diffTime(targetTime, new Date());
