@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { CharmersQuestionFormType } from '@/api/types';
 import { useUserStore } from '@store/useUserStore';
 import useSetQuestionsForm from '@/hooks/useSetQuestionForm';
@@ -13,19 +12,27 @@ type QuestionFormType = {
 const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
   const { id, questionTitle, answers, minAnswerCount, maxAnswerCount } = form;
   const { setAnswerData } = useUserStore();
-  const { checkedInput, onChangeCheckboxInput, isDisabledCheckbox, isDisabledRadio } =
-    useSetQuestionsForm(minAnswerCount, maxAnswerCount);
+  const {
+    checkedInput,
+    onChangeCheckboxInput,
+    onClickRadioInput,
+    isDisabledCheckbox,
+    isDisabledRadio,
+  } = useSetQuestionsForm(minAnswerCount, maxAnswerCount);
 
   const onClickButton = () => {
     onClickNextButton();
-    setAnswerData({ answerIds: checkedInput.map(Number).sort((a, b) => a - b), questionId: id });
+    setAnswerData({
+      answerIds: checkedInput.map(Number).sort((a, b) => a - b),
+      questionId: id,
+    });
   };
 
   return (
     <div>
       <p>{questionTitle}</p>
       {minAnswerCount === 1 ? (
-        <RadioAnswers answers={answers} />
+        <RadioAnswers answers={answers} onClickRadioInput={onClickRadioInput} />
       ) : (
         <CheckboxAnswers
           answers={answers}

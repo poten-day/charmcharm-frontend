@@ -29,6 +29,16 @@ const useSetQuestionsForm = (minAnswerCount: number, maxAnswerCount: number) => 
     }
   };
 
+  const onClickRadioInput = (e: React.MouseEvent<HTMLInputElement>) => {
+    if (e.target instanceof HTMLInputElement) {
+      if (e.target.id === checkedInput[0]) {
+        e.target.checked = false;
+        return setCheckedInput([]);
+      }
+      setCheckedInput([e.target.id]);
+    }
+  };
+
   const isDisabledCheckbox = checkedInput.length < minAnswerCount;
   const isDisabledRadio = !checkedInput.length;
 
@@ -36,6 +46,7 @@ const useSetQuestionsForm = (minAnswerCount: number, maxAnswerCount: number) => 
     checkedInput,
     onChangeCheckboxInput,
     onChangeCheckboxLimitMaxCount,
+    onClickRadioInput,
     isDisabledCheckbox,
     isDisabledRadio,
   };
