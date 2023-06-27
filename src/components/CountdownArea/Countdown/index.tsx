@@ -5,17 +5,20 @@ import { diffTime, updateTitleByTime } from '@/utils/date';
 import ShareURL from '@components/Common/ShareURL';
 import { CharmersExtendsType } from '@/api/types';
 import Timer from '@/components/Common/Timer';
+import { useUserStore } from '@/store/useUserStore';
 
 const Countdown = ({ data }: { data: CharmersExtendsType }) => {
   const id = window.location.pathname;
   const navigate = useNavigate();
   const { shareLink, openTime } = data;
   const { finishedTime, setFinishedTimeFunc: setFinishedTime, setTimes, timer } = useSetTimes();
+  const setUserInfo = useUserStore((state) => state.setUserInfo);
   const onClickNavigateFormButton = () => navigate(`${id}/form`);
 
   useEffect(() => {
     setTimes(openTime);
     setFinishedTime(openTime);
+    setUserInfo(data);
   }, []);
 
   useEffect(() => {
