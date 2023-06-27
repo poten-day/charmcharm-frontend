@@ -2,6 +2,7 @@ import { getQuestionForm } from '@/api';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import QuestionsTimer from '@components/Questions/QuestionTimer';
 
 const QuestionsContainer = () => {
   const param = useParams();
@@ -14,7 +15,12 @@ const QuestionsContainer = () => {
     console.log(data);
   }, [data]);
 
-  return <div>Questions</div>;
+  return (
+    <div>
+      <QuestionsTimer />
+      Questions
+    </div>
+  );
 };
 
 export default QuestionsContainer;
