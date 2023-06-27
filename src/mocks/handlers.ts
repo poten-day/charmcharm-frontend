@@ -44,7 +44,7 @@ export const handlers = [
 
     return res(
       ctx.status(200),
-      ctx.json({ ...MOCK_USER_DATA[0], finished: isFinished(MOCK_USER_DATA[0].shareLink) })
+      ctx.json({ ...MOCK_USER_DATA[0], finished: isFinished(MOCK_USER_DATA[0].openTime) })
     );
   }),
 ];
