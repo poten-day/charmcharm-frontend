@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CharmersDefaultType, CharmersExtendsType } from './types';
+import { CharmersDefaultType, CharmersExtendsType, CharmersQuestionType } from './types';
 
 const instance = axios.create({
   baseURL: `${import.meta.env.VITE_SERVER_BASE_URL}`,
@@ -17,7 +17,7 @@ export const getCharmers = async (id: string): Promise<CharmersExtendsType> => {
   return data;
 };
 
-export const getQuestionForm = async (id: string | undefined): Promise<CharmersExtendsType> => {
+export const getQuestionForm = async (id: string | undefined): Promise<CharmersQuestionType> => {
   const { data } = await instance.get(`/api/questions/${id}`);
   return data;
 };
