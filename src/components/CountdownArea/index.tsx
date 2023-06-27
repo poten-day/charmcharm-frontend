@@ -4,6 +4,7 @@ import { getCharmers } from '@/api';
 import { useNavigate } from 'react-router-dom';
 import useSetTimes from '@/hooks/useSetTimes';
 import { millisecondsToTime, updateTitleByTime } from '@/utils/date';
+import ShareURL from '@components/Common/ShareURL';
 
 const CountdownArea = () => {
   const id = window.location.pathname;
@@ -42,10 +43,7 @@ const CountdownArea = () => {
         <span>⏰</span>
         <p>{millisecondsToTime(timer).format('HH:mm:ss')}</p>
       </div>
-      <div>
-        <input type="text" defaultValue={`https://charmcharm.me${location.pathname}`} readOnly />
-        <button type="button">공유</button>
-      </div>
+      <ShareURL url={`https://charmcharm.me${location.pathname}`} />
       <button type="button">설문 시작하기</button>
       <p>{finishedTime}에 결과가 오픈됩니다!</p>
     </div>
