@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useSetTimes from '@/hooks/useSetTimes';
-import { diffTime, millisecondsToTime, updateTitleByTime } from '@/utils/date';
+import { diffTime, updateTitleByTime } from '@/utils/date';
 import ShareURL from '@components/Common/ShareURL';
 import { CharmersExtendsType } from '@/api/types';
+import Timer from '@/components/Common/Timer';
 
 const Countdown = ({ data }: { data: CharmersExtendsType }) => {
   const id = window.location.pathname;
@@ -32,10 +33,7 @@ const Countdown = ({ data }: { data: CharmersExtendsType }) => {
         설문조사는 <strong>단 4시간 동안</strong> 진행됩니다.
         <br /> 제한시간 내 친구들에게 링크를 공유해주세요!
       </p>
-      <div className="flex items-center gap-2">
-        <span>⏰</span>
-        <p>{millisecondsToTime(timer).format('HH:mm:ss')}</p>
-      </div>
+      <Timer time={timer} />
       <ShareURL url={shareLink} />
       <button type="button" onClick={onClickNavigateFormButton}>
         설문 시작하기
