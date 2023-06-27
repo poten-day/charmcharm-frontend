@@ -1,8 +1,8 @@
 import { getQuestionForm } from '@/api';
 import { useQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import QuestionsTimer from '@components/Questions/QuestionTimer';
+import QuestionFormList from '@components/Questions/QuestionFormList';
 
 const QuestionsContainer = () => {
   const param = useParams();
@@ -11,14 +11,10 @@ const QuestionsContainer = () => {
     queryFn: () => getQuestionForm(param.id),
   });
 
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
-
   return (
     <div>
       <QuestionsTimer />
-      Questions
+      {data && <QuestionFormList data={data.questionForms} />}
     </div>
   );
 };
