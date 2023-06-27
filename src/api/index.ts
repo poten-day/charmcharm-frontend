@@ -6,7 +6,7 @@ const instance = axios.create({
 });
 
 export const postCharmers = async (name: string): Promise<CharmersDefaultType> => {
-  const { data } = await instance.post('/api/charmers', name);
+  const { data } = await instance.post('/api/charmers', { name });
   return data;
 };
 
