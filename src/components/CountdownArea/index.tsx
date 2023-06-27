@@ -11,6 +11,7 @@ const CountdownArea = () => {
   const navigate = useNavigate();
   const { data } = useQuery({ queryKey: ['user', id], queryFn: () => getCharmers(id) });
   const { finishedTime, setFinishedTimeFunc: setFinishedTime, setTimes, timer } = useSetTimes();
+  const onClickNavigateFormButton = () => navigate(`${id}/form`);
 
   useEffect(() => {
     if (data) {
@@ -44,7 +45,9 @@ const CountdownArea = () => {
         <p>{millisecondsToTime(timer).format('HH:mm:ss')}</p>
       </div>
       <ShareURL url={`https://charmcharm.me${location.pathname}`} />
-      <button type="button">설문 시작하기</button>
+      <button type="button" onClick={onClickNavigateFormButton}>
+        설문 시작하기
+      </button>
       <p>{finishedTime}에 결과가 오픈됩니다!</p>
     </div>
   );
