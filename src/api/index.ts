@@ -17,4 +17,9 @@ export const getCharmers = async (id: string): Promise<CharmersExtendsType> => {
   return data;
 };
 
+export const getQuestionForm = async (id: string | undefined): Promise<CharmersExtendsType> => {
+  const { data } = await instance.get(`/api/questions/${id}`);
+  return data;
+};
+
 export default instance;

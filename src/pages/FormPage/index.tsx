@@ -1,5 +1,7 @@
+import QuestionsContainer from '@components/Questions/QuestionsContainer';
+
 const FormPage = () => {
-  return <div>Form</div>;
+  return <QuestionsContainer />;
 };
 
 export default FormPage;
