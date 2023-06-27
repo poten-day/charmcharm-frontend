@@ -2,54 +2,34 @@ import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getCharmers } from '@/api';
 import { useNavigate } from 'react-router-dom';
-import useSetTimes from '@/hooks/useSetTimes';
-import { millisecondsToTime, updateTitleByTime } from '@/utils/date';
-import ShareURL from '@components/Common/ShareURL';
+import Countdown from './Countdown';
 
 const CountdownArea = () => {
-  const id = window.location.pathname;
+  const id = location.pathname;
   const navigate = useNavigate();
   const { data } = useQuery({ queryKey: ['user', id], queryFn: () => getCharmers(id) });
-  const { finishedTime, setFinishedTimeFunc: setFinishedTime, setTimes, timer } = useSetTimes();
-  const onClickNavigateFormButton = () => navigate(`${id}/form`);
 
   useEffect(() => {
-    if (data) {
-      if (data.finished) {
-        navigate(`${id}/result`);
-        return;
-      }
-      setTimes(data.openTime);
-      setFinishedTime(data.openTime);
-    }
-  }, [data]);
-
-  useEffect(() => {
-    if (!data) return;
-    setTimes(data.openTime);
-    if (timer === 0) {
+    if (data && data.finished) {
       navigate(`${id}/result`);
       return;
     }
-  }, [timer]);
+  }, [data]);
 
-  return (
-    <div>
-      <h1>{data ? updateTitleByTime(data.openTime) : ''}</h1>
-      <p>
-        설문조사는 <strong>단 4시간 동안</strong> 진행됩니다.
-        <br /> 제한시간 내 친구들에게 링크를 공유해주세요!
-      </p>
-      <div className="flex items-center gap-2">
-        <span>⏰</span>
-        <p>{millisecondsToTime(timer).format('HH:mm:ss')}</p>
+  return data && !data.finished ? (
+    <div className="text-center">
+      <header>나의 매력을 알려줘</header>
+      <div className="flex items-center gap-2 ">
+        <span>아이콘</span>
+        <p className="text-left">
+          링크를 잃어버리면 결과를 확인할 수 없어요. <br />
+          메모장에 꼭 저장해두세요!
+        </p>
       </div>
-      <ShareURL url={`https://charmcharm.me${location.pathname}`} />
-      <button type="button" onClick={onClickNavigateFormButton}>
-        설문 시작하기
-      </button>
-      <p>{finishedTime}에 결과가 오픈됩니다!</p>
+      <Countdown data={data} />
     </div>
+  ) : (
+    <></>
   );
 };
 
