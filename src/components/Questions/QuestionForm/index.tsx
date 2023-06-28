@@ -10,7 +10,7 @@ type QuestionFormType = {
 };
 
 const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
-  const { id, questionTitle, answers, minAnswerCount, maxAnswerCount } = form;
+  const { id, questionTitle, answers, minAnswerCount, isSingleChoice } = form;
   const { setAnswerData, answers: storeAnswers } = useUserStore();
   const {
     checkedInput,
@@ -18,7 +18,7 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
     onClickRadioInput,
     isDisabledCheckbox,
     isDisabledRadio,
-  } = useSetQuestionsForm(minAnswerCount, maxAnswerCount);
+  } = useSetQuestionsForm(minAnswerCount);
 
   const onClickButton = () => {
     if (!storeAnswers.find((ans) => ans.questionId === id)) {
@@ -33,7 +33,7 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
   return (
     <div>
       <p>{questionTitle}</p>
-      {minAnswerCount === 1 ? (
+      {isSingleChoice ? (
         <RadioAnswers answers={answers} onClickRadioInput={onClickRadioInput} />
       ) : (
         <CheckboxAnswers
@@ -45,7 +45,7 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
       <button
         type="button"
         onClick={onClickButton}
-        disabled={minAnswerCount === 1 ? isDisabledRadio : isDisabledCheckbox}
+        disabled={isSingleChoice ? isDisabledRadio : isDisabledCheckbox}
       >
         다음
       </button>

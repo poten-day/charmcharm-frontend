@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useSetQuestionsForm = (minAnswerCount: number, maxAnswerCount: number) => {
+const useSetQuestionsForm = (minAnswerCount: number) => {
   const [checkedInput, setCheckedInput] = useState<string[]>([]);
 
   const onChangeCheckboxInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -10,23 +10,6 @@ const useSetQuestionsForm = (minAnswerCount: number, maxAnswerCount: number) => 
       );
     }
     return setCheckedInput([...checkedInput, e.target.id]);
-  };
-
-  const onChangeCheckboxLimitMaxCount = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (checkedInput.length < maxAnswerCount) {
-      if (!e.target.checked) {
-        return setCheckedInput((prevCheckedInput) =>
-          prevCheckedInput.filter((checkedId) => checkedId !== e.target.id)
-        );
-      }
-      return setCheckedInput([...checkedInput, e.target.id]);
-    }
-
-    if (!e.target.checked) {
-      return setCheckedInput((prevCheckedInput) =>
-        prevCheckedInput.filter((checkedId) => checkedId !== e.target.id)
-      );
-    }
   };
 
   const onClickRadioInput = (e: React.MouseEvent<HTMLInputElement>) => {
@@ -45,7 +28,6 @@ const useSetQuestionsForm = (minAnswerCount: number, maxAnswerCount: number) => 
   return {
     checkedInput,
     onChangeCheckboxInput,
-    onChangeCheckboxLimitMaxCount,
     onClickRadioInput,
     isDisabledCheckbox,
     isDisabledRadio,

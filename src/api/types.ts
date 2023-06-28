@@ -18,7 +18,7 @@ export interface CharmersQuestionFormType {
   questionTitle: string;
   answers: CharmersQuestionAnswersType[];
   minAnswerCount: number;
-  maxAnswerCount: number;
+  isSingleChoice: boolean;
 }
 
 export interface CharmersQuestionType {

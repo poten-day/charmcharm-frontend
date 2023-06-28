@@ -114,8 +114,8 @@ export const MOCK_QUESTIONS = {
           description: '성숙한',
         },
       ],
+      isSingleChoice: false,
       minAnswerCount: 3,
-      maxAnswerCount: 3,
     },
     {
       id: 2,
@@ -123,23 +123,23 @@ export const MOCK_QUESTIONS = {
       answers: [
         {
           id: 0,
-          description: '🌹 빨간색',
+          description: '\uD83C\uDF39 빨간색',
         },
         {
           id: 1,
-          description: '🍊 주황색',
+          description: '\uD83C\uDF4A 주황색',
         },
         {
           id: 2,
-          description: '🍋 노란색',
+          description: '\uD83C\uDF4B 노란색',
         },
         {
           id: 3,
-          description: '🍏 초록색',
+          description: '\uD83C\uDF4F 초록색',
         },
         {
           id: 4,
-          description: '🦋 파란색',
+          description: '\uD83E\uDD8B 파란색',
         },
         {
           id: 5,
@@ -147,19 +147,19 @@ export const MOCK_QUESTIONS = {
         },
         {
           id: 6,
-          description: '🍑 핑크색',
+          description: '\uD83C\uDF51 핑크색',
         },
         {
           id: 7,
-          description: '🌩 흰색',
+          description: '\uD83C\uDF29 흰색',
         },
         {
           id: 8,
-          description: '🎱 검은색',
+          description: '\uD83C\uDFB1 검은색',
         },
       ],
+      isSingleChoice: true,
       minAnswerCount: 1,
-      maxAnswerCount: 1,
     },
     {
       id: 3,
@@ -202,8 +202,8 @@ export const MOCK_QUESTIONS = {
           description: '롯데월드 같이 가고 싶은 사람',
         },
       ],
+      isSingleChoice: true,
       minAnswerCount: 1,
-      maxAnswerCount: 1,
     },
   ],
 };
