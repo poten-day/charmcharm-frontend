@@ -7,7 +7,11 @@ import Countdown from './Countdown';
 const CountdownArea = () => {
   const id = location.pathname;
   const navigate = useNavigate();
-  const { data } = useQuery({ queryKey: ['user', id], queryFn: () => getCharmers(id) });
+  const { data } = useQuery({
+    queryKey: ['user', id],
+    queryFn: () => getCharmers(id),
+    staleTime: 10000 * 6,
+  });
 
   useEffect(() => {
     if (data && data.finished) {

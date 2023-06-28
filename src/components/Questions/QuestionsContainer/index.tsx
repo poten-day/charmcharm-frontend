@@ -11,6 +11,7 @@ const QuestionsContainer = () => {
   const { data } = useQuery({
     queryKey: ['form', param.id],
     queryFn: () => getQuestionForm(param.id),
+    staleTime: 10000 * 3,
   });
   const [isTimeOver, setTimeOver] = useState(false);
   const setTimeOverFunc = () => setTimeOver(!isTimeOver);
