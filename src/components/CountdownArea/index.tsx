@@ -1,21 +1,21 @@
 import { useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { getCharmers } from '@/api';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Countdown from './Countdown';
 
 const CountdownArea = () => {
-  const id = location.pathname;
+  const params = useParams();
   const navigate = useNavigate();
   const { data } = useQuery({
-    queryKey: ['user', id],
-    queryFn: () => getCharmers(id),
+    queryKey: ['user', params.id],
+    queryFn: () => getCharmers(params.id),
     staleTime: 10000 * 6,
   });
 
   useEffect(() => {
     if (data && data.finished) {
-      navigate(`${id}/result`);
+      navigate(`/${params.id}/result`);
       return;
     }
   }, [data]);

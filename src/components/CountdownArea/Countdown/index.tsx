@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import useSetTimes from '@/hooks/useSetTimes';
 import { diffTime, updateTitleByTime } from '@/utils/date';
 import ShareURL from '@components/Common/ShareURL';
@@ -8,12 +8,12 @@ import Timer from '@/components/Common/Timer';
 import { useUserStore } from '@/store/useUserStore';
 
 const Countdown = ({ data }: { data: CharmersExtendsType }) => {
-  const id = window.location.pathname;
+  const params = useParams();
   const navigate = useNavigate();
   const { shareLink, openTime } = data;
   const { finishedTime, setFinishedTimeFunc: setFinishedTime, setTimes, timer } = useSetTimes();
   const setUserInfo = useUserStore((state) => state.setUserInfo);
-  const onClickNavigateFormButton = () => navigate(`${id}/form`);
+  const onClickNavigateFormButton = () => navigate(`/${params.id}/form`);
 
   useEffect(() => {
     setTimes(openTime);
@@ -24,7 +24,7 @@ const Countdown = ({ data }: { data: CharmersExtendsType }) => {
   useEffect(() => {
     setTimes(openTime);
     if (diffTime(openTime, new Date()) <= 0 && timer === 0) {
-      navigate(`${id}/result`);
+      navigate(`${params.id}/result`);
       return;
     }
   }, [timer]);

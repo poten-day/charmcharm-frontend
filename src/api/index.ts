@@ -17,9 +17,8 @@ export const postCharmers = async (name: string): Promise<CharmersDefaultType> =
   return data;
 };
 
-export const getCharmers = async (id: string): Promise<CharmersExtendsType> => {
-  const replace = id.substring(1);
-  const { data } = await instance.get(`/api/charmers/${replace}`);
+export const getCharmers = async (id: string | undefined): Promise<CharmersExtendsType> => {
+  const { data } = await instance.get(`/api/charmers/${id}`);
   return data;
 };
 
