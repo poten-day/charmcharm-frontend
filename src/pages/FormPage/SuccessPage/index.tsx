@@ -1,0 +1,31 @@
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import ShareURL from '@/components/Common/ShareURL';
+import useSetTimes from '@/hooks/useSetTimes';
+import { useUserStore } from '@/store/useUserStore';
+
+const FormSuccessPage = () => {
+  const navigate = useNavigate();
+  const param = useParams();
+  const { user } = useUserStore();
+  const { finishedTime } = useSetTimes();
+
+  useEffect(() => {
+    if (user.name === '') {
+      navigate(`/${param.id}`);
+    }
+  }, []);
+
+  return (
+    <div>
+      <header>나의 매력을 알려줘</header>
+      <p>링크저장하세요</p>
+      <p>{user.name}에게 소중한 답변이 전달되었어요.</p>
+      <p>{finishedTime}에 결과가 오픈됩니다!</p>
+      <ShareURL url={user.shareLink} />
+      <button type="button">내 매력도 알아보기</button>
+    </div>
+  );
+};
+
+export default FormSuccessPage;

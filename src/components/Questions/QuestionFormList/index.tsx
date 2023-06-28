@@ -19,7 +19,7 @@ const QuestionFormList = ({
   const { answers } = useUserStore();
   const { mutate } = useMutation(postAnswersForm, {
     onSuccess: () => {
-      navigate(`/${param.id}/success`);
+      navigate(`/${param.id}/form/success`);
     },
   });
 
