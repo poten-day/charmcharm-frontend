@@ -1,12 +1,19 @@
-const SubResult = () => {
+import { AnswersSubQuestionType } from '@/api/types';
+
+const SubResult = ({ data }: { data: AnswersSubQuestionType[] }) => {
   return (
     <div>
       <p>친구들의 답변 전체</p>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi ducimus, quo quis labore
-        sapiente minima officiis molestiae veritatis provident placeat optio pariatur harum
-        recusandae culpa odio, minus voluptates dicta quos.
-      </p>
+      {data.map((data) => (
+        <div key={`answers-${data.questionId}`}>
+          <p>{data.questionTitle}</p>
+          {data.answerResults.map((result) => (
+            <span key={`${result.answerId}-${result.answerName}`}>
+              {result.answerName}({result.answerCount}명)
+            </span>
+          ))}
+        </div>
+      ))}
     </div>
   );
 };

@@ -1,23 +1,37 @@
-const MainResult = () => {
+import { CharmerResultsType } from '@/api/types';
+
+const MainResult = ({ data }: { data: CharmerResultsType }) => {
+  const { mainQuestions, name, hex } = data;
+  const [title, color, respect, forMe] = mainQuestions;
+  const [mainConcept, ...subConcept] = title.answerResults;
+
   return (
     <div>
-      <p>
+      <h1>
         친구들이 말하는 <br />
-        name의 매력은?
-      </p>
-      <div>
-        <p>메인 컨셉</p>
+        <strong className={`text-[${hex}]`}>{name}</strong>의 매력은?
+      </h1>
+      <div className={`bg-[${hex}]`}>
+        <p>{mainConcept.answerName}</p>
       </div>
-      <p>서브컨셉1, 서브컨셉2</p>
-      <p>이런 너를 생각하면 oo색이 떠올라!</p>
+      <div>
+        {subConcept.map((concept) => (
+          <span key={`concept-${concept.answerId}`} className={`text-[${hex}]`}>
+            #{concept.answerName}
+          </span>
+        ))}
+      </div>
+      <p>이런 너를 생각하면 {color.answerResults[0].answerName}이 떠올라!</p>
       <ul>
         <li>
           <p>친구들이 말하는 너는</p>
-          <p>ㅇㅇ,ㅇㅇ,ㅇㅇ</p>
+          {respect.answerResults.map((concept) => (
+            <span key={`respect-${concept.answerId}`}>{concept.answerName}</span>
+          ))}
         </li>
         <li>
           <p>친구들에게 너는</p>
-          <p>같이 ㅇㅇ하고 싶은 사람</p>
+          <p>{forMe.answerResults[0].answerName}</p>
         </li>
       </ul>
     </div>

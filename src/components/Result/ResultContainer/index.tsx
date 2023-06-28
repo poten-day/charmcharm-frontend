@@ -13,15 +13,17 @@ const ResultContainer = () => {
   });
   const { executeShareURL } = useShareURL();
 
-  return (
+  return data ? (
     <div>
-      <MainResult />
-      <SubResult />
+      <MainResult data={data} />
+      <SubResult data={data.subQuestions} />
       <div>
         <button>저장하기</button>
         <button onClick={() => executeShareURL(window.location.href)}>공유하기</button>
       </div>
     </div>
+  ) : (
+    <></>
   );
 };
 
