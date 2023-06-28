@@ -1,19 +1,38 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import ShareURL from '@/components/Common/ShareURL';
 import useSetTimes from '@/hooks/useSetTimes';
 import { useUserStore } from '@/store/useUserStore';
+import ShareURL from '@/components/Common/ShareURL';
 
 const FormSuccessPage = () => {
   const navigate = useNavigate();
   const param = useParams();
-  const { user } = useUserStore();
+  const { user, resetAnswerData, resetUserInfo } = useUserStore();
   const { finishedTime } = useSetTimes();
+
+  const resetUserStore = () => {
+    resetAnswerData();
+    resetUserInfo();
+  };
 
   useEffect(() => {
     if (user.name === '') {
-      navigate(`/${param.id}`);
+      return navigate(`/${param.id}`);
     }
+
+    const preventGoBack = () => {
+      resetUserStore();
+      navigate(`/${param.id}`);
+    };
+
+    (() => {
+      history.pushState(null, '', location.href);
+      window.addEventListener('popstate', preventGoBack);
+    })();
+
+    return () => {
+      window.removeEventListener('popstate', preventGoBack);
+    };
   }, []);
 
   return (

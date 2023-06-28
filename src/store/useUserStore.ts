@@ -2,7 +2,7 @@ import { CharmersExtendsType } from '@/api/types';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-type AnswersFormType = {
+export type AnswersFormType = {
   answerIds: number[];
   questionId: number;
 };
@@ -15,6 +15,8 @@ type StoreState = {
 type StoreAction = {
   setUserInfo: (newState: CharmersExtendsType) => void;
   setAnswerData: (newState: AnswersFormType) => void;
+  resetUserInfo: () => void;
+  resetAnswerData: () => void;
 };
 
 const INIT_USER: CharmersExtendsType = {
@@ -35,5 +37,7 @@ export const useUserStore = create<useUserStoreTypes>()(
     setUserInfo: (newState: CharmersExtendsType) => set({ user: newState }),
     setAnswerData: (newState: AnswersFormType) =>
       set((state) => ({ answers: [...state.answers, newState] })),
+    resetUserInfo: () => set({ user: INIT_USER }),
+    resetAnswerData: () => set({ answers: INIT_ANSWERS }),
   }))
 );
