@@ -2,8 +2,10 @@ import { Outlet } from 'react-router-dom';
 
 const PageLayout = () => {
   return (
-    <div>
-      <Outlet />
+    <div className="h-screen bg-primary100">
+      <div className="max-w-[480px] bg-white h-screen m-auto">
+        <Outlet />
+      </div>
     </div>
   );
 };
