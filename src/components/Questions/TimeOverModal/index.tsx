@@ -1,10 +1,9 @@
+import useSetRouter from '@/hooks/useSetRouter';
 import { useUserStore } from '@/store/useUserStore';
-import { useNavigate, useParams } from 'react-router-dom';
 
 const TimeOverModal = () => {
   const { user } = useUserStore();
-  const navigate = useNavigate();
-  const params = useParams();
+  const { routerHelper } = useSetRouter();
 
   return (
     <div className="absolute bg-slate-300">
@@ -13,7 +12,7 @@ const TimeOverModal = () => {
         아쉽게도 완료하지 않은 답변은 <br />
         {user.name}에게 전달되지 않아요
       </p>
-      <button type="button" onClick={() => navigate(`/${params.id}/result`)}>
+      <button type="button" onClick={() => routerHelper.result()}>
         결과 확인하기
       </button>
     </div>

@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { CharmersQuestionFormType } from '@/api/types';
-import QuestionForm from '@components/Questions/QuestionForm';
 import { useMutation } from '@tanstack/react-query';
 import { postAnswersForm } from '@/api';
+import { CharmersQuestionFormType } from '@/api/types';
+import useSetRouter from '@/hooks/useSetRouter';
 import { useUserStore } from '@/store/useUserStore';
-import { useNavigate, useParams } from 'react-router-dom';
+
+import QuestionForm from '@components/Questions/QuestionForm';
 
 const QuestionFormList = ({
   data,
@@ -13,13 +14,12 @@ const QuestionFormList = ({
   data: CharmersQuestionFormType[];
   formLength: number;
 }) => {
-  const param = useParams();
   const [formIndex, setFormIndex] = useState(0);
-  const navigate = useNavigate();
+  const { id, routerHelper } = useSetRouter();
   const { answers } = useUserStore();
   const { mutate } = useMutation(postAnswersForm, {
     onSuccess: () => {
-      navigate(`/${param.id}/form/success`);
+      routerHelper.success();
     },
   });
 
@@ -31,7 +31,7 @@ const QuestionFormList = ({
 
   useEffect(() => {
     if (answers.length === formLength) {
-      mutate({ id: param.id, answers });
+      mutate({ id, answers });
     }
   }, [answers]);
 

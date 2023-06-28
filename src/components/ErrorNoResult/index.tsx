@@ -1,9 +1,9 @@
 import Timer from '@/components/Common/Timer';
-import { useNavigate } from 'react-router-dom';
+import useSetRouter from '@/hooks/useSetRouter';
 
 const ErrorNoResult = () => {
-  const navigate = useNavigate();
-  const onClickNavigateMain = () => navigate('/');
+  const { routerHelper } = useSetRouter();
+  const onClickNavigateMain = () => routerHelper.main();
 
   return (
     <div>

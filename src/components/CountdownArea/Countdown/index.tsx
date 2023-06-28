@@ -1,19 +1,19 @@
 import { useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import useSetTimes from '@/hooks/useSetTimes';
-import { diffTime, updateTitleByTime } from '@/utils/date';
+import { CharmersExtendsType } from '@api/types';
+import useSetTimes from '@hooks/useSetTimes';
+import useSetRouter from '@hooks/useSetRouter';
+import { useUserStore } from '@store/useUserStore';
+import { diffTime, updateTitleByTime } from '@utils/date';
+
 import ShareURL from '@components/Common/ShareURL';
-import { CharmersExtendsType } from '@/api/types';
-import Timer from '@/components/Common/Timer';
-import { useUserStore } from '@/store/useUserStore';
+import Timer from '@components/Common/Timer';
 
 const Countdown = ({ data }: { data: CharmersExtendsType }) => {
-  const params = useParams();
-  const navigate = useNavigate();
+  const { routerHelper } = useSetRouter();
   const { shareLink, openTime } = data;
   const { finishedTime, setFinishedTimeFunc: setFinishedTime, setTimes, timer } = useSetTimes();
   const setUserInfo = useUserStore((state) => state.setUserInfo);
-  const onClickNavigateFormButton = () => navigate(`/${params.id}/form`);
+  const onClickNavigateFormButton = () => routerHelper.form();
 
   useEffect(() => {
     setTimes(openTime);
@@ -24,7 +24,7 @@ const Countdown = ({ data }: { data: CharmersExtendsType }) => {
   useEffect(() => {
     setTimes(openTime);
     if (diffTime(openTime, new Date()) <= 0 && timer === 0) {
-      navigate(`${params.id}/result`);
+      routerHelper.result();
       return;
     }
   }, [timer]);

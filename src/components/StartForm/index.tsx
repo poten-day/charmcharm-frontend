@@ -6,7 +6,7 @@ import { postCharmers } from '@/api';
 const MAX_LENGTH = 5;
 
 const StartForm = () => {
-  const navigator = useNavigate();
+  const navigate = useNavigate();
   const { data, isSuccess, mutate } = useMutation(postCharmers);
   const [name, setName] = useState('');
 
@@ -24,7 +24,7 @@ const StartForm = () => {
   useEffect(() => {
     if (data && isSuccess) {
       const url = new URL(data.shareLink);
-      navigator(url.pathname);
+      navigate(url.pathname);
     }
   }, [data, isSuccess]);
 
