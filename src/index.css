@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 600;
+  font-display: swap;
+  src: url('../public/assets/fonts/Pretendard-SemiBold.subset.woff2') format('woff2'),
+    url('../public/assets/fonts/Pretendard-SemiBold.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-display: swap;
+  src: url('../public/assets/fonts/Pretendard-Medium.subset.woff2') format('woff2'),
+    url('../public/assets/fonts/Pretendard-Medium.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-display: swap;
+  src: url('../public/assets/fonts/Pretendard-Regular.subset.woff2') format('woff2'),
+    url('../public/assets/fonts/Pretendard-Regular.subset.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'BRBA_B';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.2/BRBA_B.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeoDunggeunmoPro';
+  src: url('../public/assets/fonts/NeoDunggeunmoPro-Regular.woff2') format('woff2'),
+    url('../public/assets/fonts/NeoDunggeunmoPro-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer base {
+  html {
+    font-family: Pretendard, system-ui, sans-serif;
+  }
+}
