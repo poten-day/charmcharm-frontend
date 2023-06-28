@@ -207,3 +207,20 @@ export const MOCK_QUESTIONS = {
     },
   ],
 };
+
+export const MOCK_RESULTS = {
+  name: 'dobby',
+  results: [
+    {
+      answerResults: [
+        {
+          answerCount: 3,
+          answerId: 0,
+          answerName: '따뜻한',
+        },
+      ],
+      questionId: 1,
+      questionTitle: '친구들이 말하는 dobby의 매력은?',
+    },
+  ],
+};

@@ -2,7 +2,7 @@ import { rest } from 'msw';
 import dayjs from 'dayjs';
 import { diffTime } from '@/utils/date';
 import { CharmersDefaultType } from '@/api/types';
-import { MOCK_QUESTIONS } from './mockData';
+import { MOCK_QUESTIONS, MOCK_RESULTS } from './mockData';
 
 const MOCK_USER_DATA: CharmersDefaultType[] = [
   {
@@ -57,5 +57,8 @@ export const handlers = [
     const isFinished = diffTime(MOCK_USER_DATA[0].openTime, new Date()) < 0 ? true : false;
 
     return isFinished ? res(ctx.status(400), ctx.text('시간초과')) : res(ctx.status(200));
+  }),
+  rest.get('/api/charmers/:id/results', async (req, res, ctx) => {
+    return res(ctx.status(200), ctx.json(MOCK_RESULTS));
   }),
 ];
