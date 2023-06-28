@@ -27,15 +27,29 @@ export interface CharmersQuestionType {
 }
 
 export interface AnswersResultType {
-  answerCount: number;
   answerId: number;
   answerName: string;
 }
+
+export interface AnswersResultCountType extends AnswersResultType {
+  answerCount: number;
+}
+
+export interface AnswersMainQuestionType {
+  answerResults: AnswersResultType[];
+  questionId: number;
+  questionTitle: string;
+}
+
+export interface AnswersSubQuestionType {
+  answerResults: AnswersResultCountType[];
+  questionId: number;
+  questionTitle: string;
+}
+
 export interface CharmerResultsType {
-  name: boolean;
-  results: {
-    answerResults: AnswersResultType[];
-    questionId: number;
-    questionTitle: string;
-  }[];
+  name: string;
+  hex: string;
+  mainQuestions: AnswersMainQuestionType[];
+  subQuestions: AnswersSubQuestionType[];
 }

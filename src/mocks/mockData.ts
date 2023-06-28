@@ -209,18 +209,220 @@ export const MOCK_QUESTIONS = {
 };
 
 export const MOCK_RESULTS = {
-  name: 'dobby',
-  results: [
+  name: '도비',
+  hex: '#5B89FF',
+  mainQuestions: [
     {
+      questionId: 1,
+      questionTitle: '내가 생각하는 도비의 장점은?',
       answerResults: [
         {
-          answerCount: 3,
-          answerId: 0,
-          answerName: '따뜻한',
+          answerId: 7,
+          answerName: '꼼꼼한',
+        },
+        {
+          answerId: 10,
+          answerName: '카리스마',
+        },
+        {
+          answerId: 12,
+          answerName: '잘 웃는',
         },
       ],
+    },
+    {
+      questionId: 2,
+      questionTitle: '도비를 생각하면 떠오르는 색깔은?',
+      answerResults: [
+        {
+          answerId: 4,
+          answerName: '\uD83E\uDD8B 파란색',
+        },
+      ],
+    },
+    {
+      questionId: 3,
+      questionTitle: '도비의 능력 중 부러운 것은?',
+      answerResults: [
+        {
+          answerId: 4,
+          answerName: '\uD83D\uDC84메이크업',
+        },
+        {
+          answerId: 1,
+          answerName: '\uD83C\uDFA8그림 천재',
+        },
+        {
+          answerId: 11,
+          answerName: '\uD83C\uDF73요리왕',
+        },
+      ],
+    },
+    {
+      questionId: 4,
+      questionTitle: '나에게 도비란?',
+      answerResults: [
+        {
+          answerId: 5,
+          answerName: '\uD83E\uDD38‍♀️같이 유튜브 찍고 싶은 사람',
+        },
+      ],
+    },
+  ],
+  subQuestions: [
+    {
       questionId: 1,
-      questionTitle: '친구들이 말하는 dobby의 매력은?',
+      questionTitle: '내가 생각하는 도비의 장점은?',
+      answerResults: [
+        {
+          answerId: 7,
+          answerName: '꼼꼼한',
+          answerCount: 2,
+        },
+        {
+          answerId: 10,
+          answerName: '카리스마',
+          answerCount: 2,
+        },
+        {
+          answerId: 12,
+          answerName: '잘 웃는',
+          answerCount: 2,
+        },
+        {
+          answerId: 15,
+          answerName: '리더십 있는',
+          answerCount: 2,
+        },
+        {
+          answerId: 1,
+          answerName: '인싸인',
+          answerCount: 1,
+        },
+        {
+          answerId: 4,
+          answerName: '자신감 있는',
+          answerCount: 1,
+        },
+        {
+          answerId: 13,
+          answerName: '성실한',
+          answerCount: 1,
+        },
+        {
+          answerId: 16,
+          answerName: '자유로운',
+          answerCount: 1,
+        },
+        {
+          answerId: 6,
+          answerName: '똑똑한',
+          answerCount: 1,
+        },
+        {
+          answerId: 11,
+          answerName: '솔직한',
+          answerCount: 1,
+        },
+      ],
+    },
+    {
+      questionId: 2,
+      questionTitle: '도비를 생각하면 떠오르는 색깔은?',
+      answerResults: [
+        {
+          answerId: 4,
+          answerName: '\uD83E\uDD8B 파란색',
+          answerCount: 1,
+        },
+        {
+          answerId: 3,
+          answerName: '\uD83C\uDF4F 초록색',
+          answerCount: 1,
+        },
+        {
+          answerId: 2,
+          answerName: '\uD83C\uDF4B 노란색',
+          answerCount: 1,
+        },
+      ],
+    },
+    {
+      questionId: 3,
+      questionTitle: '도비의 능력 중 부러운 것은?',
+      answerResults: [
+        {
+          answerId: 4,
+          answerName: '\uD83D\uDC84메이크업',
+          answerCount: 2,
+        },
+        {
+          answerId: 1,
+          answerName: '\uD83C\uDFA8그림 천재',
+          answerCount: 2,
+        },
+        {
+          answerId: 11,
+          answerName: '\uD83C\uDF73요리왕',
+          answerCount: 1,
+        },
+        {
+          answerId: 16,
+          answerName: '\uD83D\uDD0A말빨',
+          answerCount: 1,
+        },
+        {
+          answerId: 17,
+          answerName: '\uD83D\uDC55패션왕',
+          answerCount: 1,
+        },
+        {
+          answerId: 6,
+          answerName: '\uD83C\uDFAE게임스킬',
+          answerCount: 1,
+        },
+        {
+          answerId: 9,
+          answerName: '\uD83D\uDCF7프사메이커',
+          answerCount: 1,
+        },
+        {
+          answerId: 12,
+          answerName: '\uD83D\uDC51타고난회장감',
+          answerCount: 1,
+        },
+        {
+          answerId: 7,
+          answerName: '\uD83D\uDC6F‍♀️친화력',
+          answerCount: 1,
+        },
+        {
+          answerId: 13,
+          answerName: '\uD83C\uDFB5목소리',
+          answerCount: 1,
+        },
+      ],
+    },
+    {
+      questionId: 4,
+      questionTitle: '나에게 도비란?',
+      answerResults: [
+        {
+          answerId: 5,
+          answerName: '\uD83E\uDD38‍♀️같이 유튜브 찍고 싶은 사람',
+          answerCount: 1,
+        },
+        {
+          answerId: 8,
+          answerName: '\uD83C\uDFA4노래방 듀엣하고 싶은 사람',
+          answerCount: 1,
+        },
+        {
+          answerId: 4,
+          answerName: '\uD83D\uDE25힘들 때 생각나는 사람',
+          answerCount: 1,
+        },
+      ],
     },
   ],
 };
