@@ -15,6 +15,11 @@ const FormSuccessPage = () => {
     resetUserInfo();
   };
 
+  const onClickNavigateMain = () => {
+    resetUserStore();
+    navigate('/');
+  };
+
   useEffect(() => {
     if (user.name === '') {
       return navigate(`/${param.id}`);
@@ -42,7 +47,9 @@ const FormSuccessPage = () => {
       <p>{user.name}에게 소중한 답변이 전달되었어요.</p>
       <p>{finishedTime}에 결과가 오픈됩니다!</p>
       <ShareURL url={user.shareLink} />
-      <button type="button">내 매력도 알아보기</button>
+      <button type="button" onClick={onClickNavigateMain}>
+        내 매력도 알아보기
+      </button>
     </div>
   );
 };
