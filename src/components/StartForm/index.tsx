@@ -29,7 +29,7 @@ const StartForm = () => {
   }, [data, isSuccess]);
 
   return (
-    <form className="flex flex-col">
+    <form className="flex flex-col" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor="typingName">
         <p>내 친구들은 나를 어떻게 생각할까?</p>
       </label>
