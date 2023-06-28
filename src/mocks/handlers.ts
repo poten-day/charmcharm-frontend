@@ -7,7 +7,7 @@ import { MOCK_QUESTIONS } from './mockData';
 const MOCK_USER_DATA: CharmersDefaultType[] = [
   {
     name: 'dobby',
-    openTime: '2023-06-27T23:28:00.000000',
+    openTime: dayjs().add(1, 'minute').format(),
     shareLink: 'https://charmcharm.me/test12345',
   },
   {
@@ -20,7 +20,7 @@ const MOCK_USER_DATA: CharmersDefaultType[] = [
 export const handlers = [
   rest.post('/api/charmers', async (req, res, ctx) => {
     const id = req.id;
-    const name = await req.text();
+    const { name } = await req.json();
     const responseData = {
       name,
       openTime: dayjs().add(4, 'hour').format(),
@@ -51,5 +51,11 @@ export const handlers = [
 
   rest.get('/api/questions/:id', async (req, res, ctx) => {
     return res(ctx.status(200), ctx.json(MOCK_QUESTIONS));
+  }),
+
+  rest.post('/api/answers/:id', async (req, res, ctx) => {
+    const isFinished = diffTime(MOCK_USER_DATA[0].openTime, new Date()) < 0 ? true : false;
+
+    return isFinished ? res(ctx.status(400), ctx.text('시간초과')) : res(ctx.status(200));
   }),
 ];
