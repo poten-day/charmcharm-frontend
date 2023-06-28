@@ -14,7 +14,9 @@ const QuestionsContainer = () => {
   return (
     <div>
       <QuestionsTimer />
-      {data && <QuestionFormList data={data.questionForms} />}
+      {data && (
+        <QuestionFormList data={data.questionForms} formLength={data.questionForms.length} />
+      )}
     </div>
   );
 };
