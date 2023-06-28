@@ -25,3 +25,17 @@ export interface CharmersQuestionType {
   name: string;
   questionForms: CharmersQuestionFormType[];
 }
+
+export interface AnswersResultType {
+  answerCount: number;
+  answerId: number;
+  answerName: string;
+}
+export interface CharmerResultsType {
+  name: boolean;
+  results: {
+    answerResults: AnswersResultType[];
+    questionId: number;
+    questionTitle: string;
+  }[];
+}

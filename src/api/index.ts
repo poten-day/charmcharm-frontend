@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { CharmersDefaultType, CharmersExtendsType, CharmersQuestionType } from './types';
+import {
+  CharmerResultsType,
+  CharmersDefaultType,
+  CharmersExtendsType,
+  CharmersQuestionType,
+} from './types';
 import { AnswersFormType } from '@/store/useUserStore';
 
 const instance = axios.create({
@@ -31,6 +36,11 @@ export const postAnswersForm = async ({
   answers: AnswersFormType[];
 }) => {
   const { data } = await instance.post(`/api/answers/${id}`, answers);
+  return data;
+};
+
+export const getCharmersResult = async (id: string | undefined): Promise<CharmerResultsType> => {
+  const { data } = await instance.get(`/api/charmers/${id}/results`);
   return data;
 };
 
