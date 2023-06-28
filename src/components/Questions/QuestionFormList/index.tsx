@@ -6,10 +6,9 @@ const QuestionFormList = ({ data }: { data: CharmersQuestionFormType[] }) => {
   const [formIndex, setFormIndex] = useState(0);
 
   const onClickNextButton = () => {
-    if (formIndex + 1 === data.length) {
-      return console.log('last');
+    if (formIndex < data.length - 1) {
+      return setFormIndex(formIndex + 1);
     }
-    return setFormIndex(formIndex + 1);
   };
 
   return (
