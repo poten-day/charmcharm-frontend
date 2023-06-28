@@ -11,7 +11,7 @@ type QuestionFormType = {
 
 const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
   const { id, questionTitle, answers, minAnswerCount, maxAnswerCount } = form;
-  const { setAnswerData } = useUserStore();
+  const { setAnswerData, answers: storeAnswers } = useUserStore();
   const {
     checkedInput,
     onChangeCheckboxInput,
@@ -21,11 +21,13 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
   } = useSetQuestionsForm(minAnswerCount, maxAnswerCount);
 
   const onClickButton = () => {
-    onClickNextButton();
-    setAnswerData({
-      answerIds: checkedInput.map(Number).sort((a, b) => a - b),
-      questionId: id,
-    });
+    if (!storeAnswers.find((ans) => ans.questionId === id)) {
+      setAnswerData({
+        answerIds: checkedInput.map(Number).sort((a, b) => a - b),
+        questionId: id,
+      });
+      onClickNextButton();
+    }
   };
 
   return (
