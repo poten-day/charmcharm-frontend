@@ -18,8 +18,10 @@ const MainResult = ({ data }: { data: CharmerResultsType }) => {
         <strong className={`text-[${hex}]`}>{name}</strong>의 매력은?
       </h1>
       <div className="relative">
-        <Background className={`w-full fill-[${hex}]`} />
-        <p className={`text-[${hex}] text-h2 font-BRBA_B absolute left-[50%] top-[50%]`}>
+        <Background className={`w-full h-auto fill-[${hex}]`} />
+        <p
+          className={`text-[${hex}] text-h2 font-BRBA_B absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
+        >
           {mainConcept.answerName}
         </p>
       </div>
