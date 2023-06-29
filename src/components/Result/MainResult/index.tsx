@@ -15,16 +15,16 @@ const MainResult = ({ data }: { data: CharmerResultsType }) => {
     <div className="flex flex-col text-center">
       <h1 className="text-h2 font-BRBA_B my-[24px] text-">
         친구들이 말하는 <br />
-        <strong className={`text-[#5B89FF]`}>{name}</strong>의 매력은?
+        <strong className={`text-[${hex}]`}>{name}</strong>의 매력은?
       </h1>
       <div className="relative">
-        <Background className={`w-full fill-[#5B89FF]`} />
-        <p className={`text-[#5B89FF] text-h2 font-BRBA_B absolute left-[50%] top-[50%]`}>
+        <Background className={`w-full fill-[${hex}]`} />
+        <p className={`text-[${hex}] text-h2 font-BRBA_B absolute left-[50%] top-[50%]`}>
           {mainConcept.answerName}
         </p>
       </div>
-      <p className={`text-[#5B89FF] text-h3 font-BRBA_B py-[12px]`}>{helper(subConcept)}</p>
-      <p className={`py-[12px] bg-[#5B89FF] text-h3 font-BRBA_B text-white`}>
+      <p className={`text-[${hex}] text-h3 font-BRBA_B py-[12px]`}>{helper(subConcept)}</p>
+      <p className={`py-[12px] bg-[${hex}] text-h3 font-BRBA_B text-white`}>
         이런 너를 생각하면 {color.answerResults[0].answerName}이 떠올라!
       </p>
       <ul className="py-[24px] px-[20px]">
