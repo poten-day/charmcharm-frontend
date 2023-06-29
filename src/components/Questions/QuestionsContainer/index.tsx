@@ -17,7 +17,7 @@ const QuestionsContainer = () => {
   const setTimeOverFunc = () => setTimeOver(!isTimeOver);
 
   return (
-    <div className="relative">
+    <div className="bg-white">
       <QuestionsTimer setTimeOver={setTimeOverFunc} />
       {data && (
         <QuestionFormList data={data.questionForms} formLength={data.questionForms.length} />

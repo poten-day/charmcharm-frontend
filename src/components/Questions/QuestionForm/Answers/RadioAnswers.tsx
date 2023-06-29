@@ -8,7 +8,7 @@ type RadioAnswersType = {
 
 const RadioAnswers = ({ answers, onClickRadioInput }: RadioAnswersType) => {
   return (
-    <ul className="flex flex-col gap-[12px]">
+    <ul className="flex flex-col gap-[12px] pb-[120px]">
       {answers.map((answer) => (
         <li key={`radio-list-${answer.description}`} className="w-full">
           <input

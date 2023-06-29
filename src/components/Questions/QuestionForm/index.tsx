@@ -47,7 +47,7 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
           />
         )}
       </div>
-      <div className="text-center flex flex-col gap-[10px] py-[12px] px-[20px] border-t border-gray200">
+      <div className="text-center flex flex-col gap-[10px] py-[12px] px-[20px] border-t border-gray200 fixed bottom-0 w-full max-w-[480px] bg-white">
         {!isSingleChoice && (
           <p className="text-baseReguler text-gray500">최소 3개 이상 선택해 주세요.</p>
         )}

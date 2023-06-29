@@ -11,7 +11,7 @@ const CheckboxAnswers = ({ answers, onChangeCheckboxInput, checkedInput }: Check
   const findCheckedInput = (id: string) => !!checkedInput.find((input) => input === id);
 
   return (
-    <ul className="flex flex-wrap justify-center gap-[8px] px-[20px]">
+    <ul className="flex flex-wrap justify-center gap-[8px] px-[20px] pb-[120px]">
       {answers.map((answer) => (
         <li key={answer.id} className="w-fit h-fit">
           <input
