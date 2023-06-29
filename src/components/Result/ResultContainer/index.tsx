@@ -17,7 +17,7 @@ const ResultContainer = () => {
   const { executeShareURL } = useShareURL();
 
   return data ? (
-    <div>
+    <div className="bg-white">
       <Header />
       <MainResult data={data} />
       <SubResult data={data.subQuestions} />

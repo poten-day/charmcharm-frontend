@@ -45,10 +45,10 @@ const FormSuccessPage = () => {
   }, []);
 
   return (
-    <>
+    <div className="bg-white pb-[24px]">
       <Header />
       <Guideline />
-      <div className="text-center px-[20px]">
+      <div className="text-center px-[20px] bg-white">
         <div className="my-[40px]">
           <p className="text-[40px]">💌</p>
           <p className="text-h1 font-BRBA_B my-[20px]">
@@ -68,7 +68,7 @@ const FormSuccessPage = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

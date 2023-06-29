@@ -32,7 +32,7 @@ const StartForm = () => {
 
   return (
     <form
-      className="flex flex-col px-[20px] py-[40px] text-center gap-[20px]"
+      className="flex flex-col px-[20px] py-[40px] text-center gap-[20px] bg-white"
       onSubmit={(e) => e.preventDefault()}
     >
       <label htmlFor="typingName">

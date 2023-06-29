@@ -22,7 +22,7 @@ const CountdownArea = () => {
   }, [data]);
 
   return data && !data.finished ? (
-    <div className="text-center">
+    <div className="text-center bg-white">
       <Header />
       <Guideline />
       <Countdown data={data} />
