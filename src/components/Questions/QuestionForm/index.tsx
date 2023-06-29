@@ -3,6 +3,7 @@ import { useUserStore } from '@store/useUserStore';
 import useSetQuestionsForm from '@/hooks/useSetQuestionForm';
 import CheckboxAnswers from './Answers/CheckboxAnswers';
 import RadioAnswers from './Answers/RadioAnswers';
+import Button from '@components/Common/Button';
 
 type QuestionFormType = {
   form: CharmersQuestionFormType;
@@ -31,8 +32,8 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
   };
 
   return (
-    <div>
-      <p>{questionTitle}</p>
+    <div className="px-[20px] text-center ">
+      <p className="text-center text-h2 font-BRBA_B py-[24px]">{questionTitle}</p>
       {isSingleChoice ? (
         <RadioAnswers answers={answers} onClickRadioInput={onClickRadioInput} />
       ) : (
@@ -42,13 +43,18 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
           checkedInput={checkedInput}
         />
       )}
-      <button
-        type="button"
-        onClick={onClickButton}
-        disabled={isSingleChoice ? isDisabledRadio : isDisabledCheckbox}
-      >
-        다음
-      </button>
+      <div className="flex flex-col gap-[10px] py-[12px]">
+        {!isSingleChoice && (
+          <p className="text-baseReguler text-gray500">최소 3개 이상 선택해 주세요.</p>
+        )}
+        <Button
+          color="black"
+          label="다음"
+          onClick={onClickButton}
+          size="large"
+          disabled={isSingleChoice ? isDisabledRadio : isDisabledCheckbox}
+        />
+      </div>
     </div>
   );
 };
