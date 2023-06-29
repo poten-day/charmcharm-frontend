@@ -30,7 +30,8 @@
       "@pages/*": ["src/page/*"],
       "@store/*": ["src/store/*"],
       "@globalTypes/*": ["src/types/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "#/*": ["public/*"]
     }
   },
   "include": ["src"],

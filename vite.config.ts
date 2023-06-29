@@ -18,6 +18,7 @@ export default defineConfig({
       { find: '@store', replacement: path.resolve(__dirname, 'src/store') },
       { find: '@globalTypes', replacement: path.resolve(__dirname, 'src/types') },
       { find: '@utils', replacement: path.resolve(__dirname, 'src/utils') },
+      { find: '#', replacement: path.resolve(__dirname, 'public') },
     ],
   },
   server: {
