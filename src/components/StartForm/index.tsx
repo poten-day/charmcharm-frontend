@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { postCharmers } from '@/api';
+import Button from '@components/Common/Button';
+import Input from '@components/Common/Input';
 
 const MAX_LENGTH = 5;
 
@@ -29,20 +31,20 @@ const StartForm = () => {
   }, [data, isSuccess]);
 
   return (
-    <form className="flex flex-col" onSubmit={(e) => e.preventDefault()}>
+    <form
+      className="flex flex-col px-[20px] py-[40px] text-center gap-[20px]"
+      onSubmit={(e) => e.preventDefault()}
+    >
       <label htmlFor="typingName">
-        <p>내 친구들은 나를 어떻게 생각할까?</p>
+        <p className="text-lgSemibold">친구들과 함께하는 ⏰ 타임어택 설문조사</p>
       </label>
-      <input
+      <Input
         id="typingName"
-        type="text"
-        placeholder="이름을 입력해주세요"
         maxLength={MAX_LENGTH}
         onChange={inputTyping}
+        placeholder="이름을 입력해주세요"
       />
-      <button type="button" disabled={isDisabled} onClick={onClickButton}>
-        시작하기
-      </button>
+      <Button disabled={isDisabled} label="시작하기" onClick={onClickButton} />
     </form>
   );
 };
