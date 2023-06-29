@@ -1,9 +1,9 @@
 import { CharmersQuestionFormType } from '@/api/types';
 import { useUserStore } from '@store/useUserStore';
 import useSetQuestionsForm from '@/hooks/useSetQuestionForm';
+import Button from '@components/Common/Button';
 import CheckboxAnswers from './Answers/CheckboxAnswers';
 import RadioAnswers from './Answers/RadioAnswers';
-import Button from '@components/Common/Button';
 
 type QuestionFormType = {
   form: CharmersQuestionFormType;
@@ -32,18 +32,20 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
   };
 
   return (
-    <div className="px-[20px] text-center ">
-      <p className="text-center text-h2 font-BRBA_B py-[24px]">{questionTitle}</p>
-      {isSingleChoice ? (
-        <RadioAnswers answers={answers} onClickRadioInput={onClickRadioInput} />
-      ) : (
-        <CheckboxAnswers
-          answers={answers}
-          onChangeCheckboxInput={onChangeCheckboxInput}
-          checkedInput={checkedInput}
-        />
-      )}
-      <div className="flex flex-col gap-[10px] py-[12px]">
+    <>
+      <div className="px-[20px]">
+        <p className="text-center text-h2 font-BRBA_B py-[24px]">{questionTitle}</p>
+        {isSingleChoice ? (
+          <RadioAnswers answers={answers} onClickRadioInput={onClickRadioInput} />
+        ) : (
+          <CheckboxAnswers
+            answers={answers}
+            onChangeCheckboxInput={onChangeCheckboxInput}
+            checkedInput={checkedInput}
+          />
+        )}
+      </div>
+      <div className="text-center flex flex-col gap-[10px] py-[12px] px-[20px] border-t border-gray200">
         {!isSingleChoice && (
           <p className="text-baseReguler text-gray500">최소 3개 이상 선택해 주세요.</p>
         )}
@@ -55,7 +57,7 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
           disabled={isSingleChoice ? isDisabledRadio : isDisabledCheckbox}
         />
       </div>
-    </div>
+    </>
   );
 };
 export default QuestionForm;
