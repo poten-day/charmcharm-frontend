@@ -22,7 +22,7 @@ const QuestionsContainer = () => {
       {data && (
         <QuestionFormList data={data.questionForms} formLength={data.questionForms.length} />
       )}
-      {isTimeOver && <TimeOverModal />}
+      {isTimeOver && <TimeOverModal setTimeOver={setTimeOver} />}
     </div>
   );
 };
