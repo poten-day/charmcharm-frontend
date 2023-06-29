@@ -15,7 +15,7 @@ const Input = (props: InputProps) => {
       placeholder={placeholder}
       maxLength={maxLength}
       onChange={onChange}
-      className="p-[16px] border rounded-[6px] border-gray200 text-center w-full max-w-[480px] text-lgMedium"
+      className="p-[16px] border rounded-[6px] border-gray200 text-center w-full max-w-[480px] text-lgMedium focus:border-primary500"
     />
   );
 };
