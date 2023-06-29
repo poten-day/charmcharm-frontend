@@ -1,9 +1,14 @@
 import { AnswersResultType, CharmerResultsType } from '@/api/types';
 import { ReactComponent as Background } from '#/assets/images/vactor/result-vactor.svg';
 import { TagStyleConfig } from '@/utils/styleConfig';
+import { ForwardedRef, forwardRef } from 'react';
 
-const MainResult = ({ data }: { data: CharmerResultsType }) => {
-  const { mainQuestions, name, hex } = data;
+interface MainResultProps {
+  data: CharmerResultsType;
+}
+
+const MainResult = (props: MainResultProps, ref: ForwardedRef<HTMLDivElement>) => {
+  const { mainQuestions, name, hex } = props.data;
   const [title, color, respect, forMe] = mainQuestions;
   const [mainConcept, ...subConcept] = title.answerResults;
 
@@ -12,8 +17,8 @@ const MainResult = ({ data }: { data: CharmerResultsType }) => {
   };
 
   return (
-    <div className="flex flex-col text-center">
-      <h1 className="text-h2 font-BRBA_B my-[24px] text-">
+    <div className="flex flex-col text-center" ref={ref}>
+      <h1 className="text-h2 font-BRBA_B my-[24px]">
         친구들이 말하는 <br />
         <strong className={`text-[${hex}]`}>{name}</strong>의 매력은?
       </h1>
@@ -52,4 +57,4 @@ const MainResult = ({ data }: { data: CharmerResultsType }) => {
   );
 };
 
-export default MainResult;
+export default forwardRef<HTMLDivElement, MainResultProps>(MainResult);
