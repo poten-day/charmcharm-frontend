@@ -2,8 +2,11 @@ import { getCharmersResult } from '@/api';
 import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import useShareURL from '@/hooks/useShareURL';
-import MainResult from '../MainResult';
-import SubResult from '../SubResult';
+
+import Button from '@components/Common/Button';
+import Header from '@components/Common/Header';
+import MainResult from '@components/Result/MainResult';
+import SubResult from '@components/Result/SubResult';
 
 const ResultContainer = () => {
   const params = useParams();
@@ -15,11 +18,12 @@ const ResultContainer = () => {
 
   return data ? (
     <div>
+      <Header />
       <MainResult data={data} />
       <SubResult data={data.subQuestions} />
-      <div>
-        <button>저장하기</button>
-        <button onClick={() => executeShareURL(window.location.href)}>공유하기</button>
+      <div className="flex w-full gap-[12px] px-[20px] py-[12px]">
+        <Button label="저장하기" color="white" />
+        <Button label="공유하기" onClick={() => executeShareURL(window.location.href)} />
       </div>
     </div>
   ) : (
