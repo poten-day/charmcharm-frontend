@@ -1,36 +1,40 @@
-import { CharmerResultsType } from '@/api/types';
+import { AnswersResultType, CharmerResultsType } from '@/api/types';
+import { ReactComponent as Background } from '#/assets/images/vactor/result-vactor.svg';
 
 const MainResult = ({ data }: { data: CharmerResultsType }) => {
   const { mainQuestions, name, hex } = data;
   const [title, color, respect, forMe] = mainQuestions;
   const [mainConcept, ...subConcept] = title.answerResults;
 
+  const helper = (answers: AnswersResultType[]) => {
+    return answers.map((answer) => `#${answer.answerName}`).join(' ');
+  };
+
   return (
-    <div>
-      <h1>
+    <div className="flex flex-col text-center">
+      <h1 className="text-h2 font-BRBA_B my-[24px]">
         친구들이 말하는 <br />
         <strong className={`text-[${hex}]`}>{name}</strong>의 매력은?
       </h1>
-      <div className={`bg-[${hex}]`}>
-        <p>{mainConcept.answerName}</p>
+      <div className="relative">
+        <Background className={`w-full fill-[${hex}]`} />
+        <p className={`text-[${hex}] text-h2 font-BRBA_B absolute left-[50%] top-[50%]`}>
+          {mainConcept.answerName}
+        </p>
       </div>
-      <div>
-        {subConcept.map((concept) => (
-          <span key={`concept-${concept.answerId}`} className={`text-[${hex}]`}>
-            #{concept.answerName}
-          </span>
-        ))}
-      </div>
-      <p>이런 너를 생각하면 {color.answerResults[0].answerName}이 떠올라!</p>
-      <ul>
-        <li>
-          <p>친구들이 말하는 너는</p>
+      <p className={`text-[${hex}] text-h3 font-BRBA_B py-[12px]`}>{helper(subConcept)}</p>
+      <p className={`py-[12px] bg-[${hex}] text-h3 font-BRBA_B text-white`}>
+        이런 너를 생각하면 {color.answerResults[0].answerName}이 떠올라!
+      </p>
+      <ul className="py-[24px]">
+        <li className="mb-[24px]">
+          <p className="text-h3 font-BRBA_B mb-[12px]">친구들이 말하는 너는</p>
           {respect.answerResults.map((concept) => (
             <span key={`respect-${concept.answerId}`}>{concept.answerName}</span>
           ))}
         </li>
         <li>
-          <p>친구들에게 너는</p>
+          <p className="text-h3 font-BRBA_B mb-[12px]">친구들에게 너는</p>
           <p>{forMe.answerResults[0].answerName}</p>
         </li>
       </ul>
