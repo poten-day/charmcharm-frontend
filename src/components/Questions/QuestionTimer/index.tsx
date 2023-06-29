@@ -14,7 +14,7 @@ const QuestionsTimer = ({ setTimeOver }: { setTimeOver: () => void }) => {
     }
   }, [timer]);
 
-  return <Timer time={timer} />;
+  return <Timer time={timer} size="small" />;
 };
 
 export default QuestionsTimer;
