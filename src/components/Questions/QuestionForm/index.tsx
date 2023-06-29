@@ -34,7 +34,9 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
   return (
     <>
       <div className="px-[20px]">
-        <p className="text-center text-h2 font-BRBA_B py-[24px]">{questionTitle}</p>
+        <p className="text-center text-h2 font-BRBA_B py-[24px]">
+          {questionTitle.replace('\\r\\n', '\r\n')}
+        </p>
         {isSingleChoice ? (
           <RadioAnswers answers={answers} onClickRadioInput={onClickRadioInput} />
         ) : (
