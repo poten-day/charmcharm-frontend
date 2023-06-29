@@ -1,4 +1,5 @@
 import { CharmersQuestionAnswersType } from '@/api/types';
+import { TagStyleConfig } from '@/utils/styleConfig';
 
 type RadioAnswersType = {
   answers: CharmersQuestionAnswersType[];
@@ -7,16 +8,22 @@ type RadioAnswersType = {
 
 const RadioAnswers = ({ answers, onClickRadioInput }: RadioAnswersType) => {
   return (
-    <ul>
+    <ul className="flex flex-col gap-[12px]">
       {answers.map((answer) => (
-        <li key={answer.id}>
+        <li key={`radio-list-${answer.description}`} className="w-full">
           <input
             type="radio"
             name="radio-answers"
             id={String(answer.id)}
             onClick={onClickRadioInput}
+            className="hidden peer"
           />
-          <label htmlFor={String(answer.id)}>{answer.description}</label>
+          <label
+            htmlFor={String(answer.id)}
+            className={`${TagStyleConfig.common} ${TagStyleConfig.checked} ${TagStyleConfig.radio}`}
+          >
+            {answer.description}
+          </label>
         </li>
       ))}
     </ul>

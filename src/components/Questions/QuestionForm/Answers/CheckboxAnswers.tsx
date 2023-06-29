@@ -1,4 +1,5 @@
 import { CharmersQuestionAnswersType } from '@/api/types';
+import { TagStyleConfig } from '@/utils/styleConfig';
 
 type CheckboxAnswersType = {
   answers: CharmersQuestionAnswersType[];
@@ -10,17 +11,23 @@ const CheckboxAnswers = ({ answers, onChangeCheckboxInput, checkedInput }: Check
   const findCheckedInput = (id: string) => !!checkedInput.find((input) => input === id);
 
   return (
-    <ul className="flex flex-wrap">
+    <ul className="flex flex-wrap justify-center gap-[8px] px-[20px]">
       {answers.map((answer) => (
-        <li key={answer.id} className="w-[30%]">
+        <li key={answer.id} className="w-fit h-fit">
           <input
             type="checkbox"
             name={`checkbox-answers`}
             id={String(answer.id)}
             onChange={onChangeCheckboxInput}
             checked={findCheckedInput(String(answer.id))}
+            className="hidden peer"
           />
-          <label htmlFor={String(answer.id)}>{answer.description}</label>
+          <label
+            htmlFor={String(answer.id)}
+            className={`${TagStyleConfig.common} ${TagStyleConfig.checked} ${TagStyleConfig.checkbox}`}
+          >
+            <span>{answer.description}</span>
+          </label>
         </li>
       ))}
     </ul>
