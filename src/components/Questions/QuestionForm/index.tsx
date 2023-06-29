@@ -31,12 +31,19 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
     }
   };
 
+  const replaceStr = (str: string) => str.split('\\r\\n');
+
   return (
     <>
       <div className="px-[20px]">
-        <p className="text-center text-h2 font-BRBA_B py-[24px]">
-          {questionTitle.replace('\\r\\n', '\r\n')}
-        </p>
+        <div className="py-[24px] flex flex-col gap-[4px]">
+          {replaceStr(questionTitle).map((el) => (
+            <p className="text-center text-h2 font-BRBA_B" key={el}>
+              {el}
+            </p>
+          ))}
+        </div>
+
         {isSingleChoice ? (
           <RadioAnswers answers={answers} onClickRadioInput={onClickRadioInput} />
         ) : (
