@@ -36,7 +36,7 @@ const Countdown = ({ data }: { data: CharmersExtendsType }) => {
           {updateTitleByTime(openTime)}
         </h1>
         <p className="text-baseReguler text-gray900 mt-[20px]">
-          설문조사는 <strong className="text-gray900">단 4시간 동안</strong> 진행됩니다.
+          설문조사는 <strong className="text-gray900">단 1시간 동안</strong> 진행됩니다.
           <br /> 제한시간 내 친구들에게 링크를 공유해주세요!
         </p>
       </div>
