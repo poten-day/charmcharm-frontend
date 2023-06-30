@@ -6,6 +6,7 @@ import useSetRouter from '@/hooks/useSetRouter';
 import { useUserStore } from '@/store/useUserStore';
 
 import QuestionForm from '@components/Questions/QuestionForm';
+import { AxiosError } from 'axios';
 
 const QuestionFormList = ({
   data,
@@ -20,6 +21,21 @@ const QuestionFormList = ({
   const { mutate } = useMutation(postAnswersForm, {
     onSuccess: () => {
       routerHelper.success();
+    },
+    onError: (res) => {
+      const error = res as AxiosError<{ message: string }>;
+      if (error.response?.data.message === '답변 가능한 시간이 지났습니다.') {
+        alert(error.response?.data.message);
+        return routerHelper.result();
+      }
+
+      if (error.response?.data.message === '존재하지 않는 charmer') {
+        alert('존재하지 않는 유저입니다.');
+        return routerHelper.main();
+      }
+
+      alert(error.response?.data.message);
+      return routerHelper.main();
     },
   });
 
