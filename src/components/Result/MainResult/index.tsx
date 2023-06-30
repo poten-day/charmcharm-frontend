@@ -20,18 +20,21 @@ const MainResult = (props: MainResultProps, ref: ForwardedRef<HTMLDivElement>) =
     <div className="flex flex-col text-center" ref={ref}>
       <h1 className="text-h2 font-BRBA_B my-[24px]">
         친구들이 말하는 <br />
-        <strong className={`text-[${hex}]`}>{name}</strong>의 매력은?
+        <strong style={{ color: `${hex}` }}>{name}</strong>의 매력은?
       </h1>
       <div className="relative">
-        <Background className={`w-full h-auto fill-[${hex}]`} />
+        <Background className="w-full h-auto" style={{ fill: `${hex}` }} />
         <p
-          className={`text-[${hex}] text-h2 font-BRBA_B absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2`}
+          className="absolute transform -translate-x-1/2 -translate-y-1/2 text-h2 font-BRBA_B top-1/2 left-1/2"
+          style={{ color: `${hex}` }}
         >
           {mainConcept.answerName}
         </p>
       </div>
-      <p className={`text-[${hex}] text-h3 font-BRBA_B py-[12px]`}>{helper(subConcept)}</p>
-      <p className={`py-[12px] bg-[${hex}] text-h3 font-BRBA_B text-white`}>
+      <p className="text-h3 font-BRBA_B py-[12px]" style={{ color: `${hex}` }}>
+        {helper(subConcept)}
+      </p>
+      <p className="py-[12px] text-h3 font-BRBA_B text-white" style={{ backgroundColor: `${hex}` }}>
         이런 너를 생각하면 {color.answerResults[0].answerName}이 떠올라!
       </p>
       <ul className="py-[24px] px-[20px]">
