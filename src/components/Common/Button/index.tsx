@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 export interface ButtonProps {
   label: string;
   color?: 'white' | 'black';
@@ -31,4 +33,4 @@ const Button = ({ color = 'black', size = 'large', ...props }: ButtonProps) => {
   );
 };
 
-export default Button;
+export default memo(Button);
