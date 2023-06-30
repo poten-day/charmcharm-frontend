@@ -43,7 +43,7 @@ const ResultContainer = () => {
       <Header />
       <MainResult data={data} ref={mainResultRef} />
       <SubResult data={data.subQuestions} />
-      <div className="flex w-full gap-[12px] px-[20px] py-[12px] bg-white">
+      <div className="flex w-full gap-[12px] px-[20px] py-[12px] bg-white fixed bottom-0 max-w-[480px]">
         <Button label="저장하기" color="white" onClick={handleDownload} />
         <Button label="공유하기" onClick={() => executeShareURL(window.location.href)} />
       </div>
