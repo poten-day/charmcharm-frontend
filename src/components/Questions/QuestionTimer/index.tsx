@@ -6,7 +6,7 @@ const QuestionsTimer = ({ setTimeOver }: { setTimeOver: () => void }) => {
   const { timer } = useSetTimes();
 
   useEffect(() => {
-    if (timer === 0) {
+    if (timer <= 0) {
       setTimeOver();
     }
   }, [timer]);
