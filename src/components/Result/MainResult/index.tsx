@@ -40,14 +40,16 @@ const MainResult = (props: MainResultProps, ref: ForwardedRef<HTMLDivElement>) =
       <ul className="py-[24px] px-[20px]">
         <li className="mb-[24px]">
           <p className="text-h3 font-BRBA_B mb-[12px]">친구들이 말하는 너는</p>
-          {respect.answerResults.map((concept) => (
-            <span
-              key={`respect-${concept.answerId}`}
-              className={`${TagStyleConfig.common} ${TagStyleConfig.checkbox}`}
-            >
-              {concept.answerName}
-            </span>
-          ))}
+          <div className="flex justify-center gap-[8px]">
+            {respect.answerResults.map((concept) => (
+              <span
+                key={`respect-${concept.answerId}`}
+                className={`${TagStyleConfig.common} ${TagStyleConfig.checkbox}`}
+              >
+                {concept.answerName}
+              </span>
+            ))}
+          </div>
         </li>
         <li>
           <p className="text-h3 font-BRBA_B mb-[12px]">친구들에게 너는</p>
