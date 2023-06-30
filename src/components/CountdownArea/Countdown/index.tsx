@@ -23,7 +23,7 @@ const Countdown = ({ data }: { data: CharmersExtendsType }) => {
   }, []);
 
   useEffect(() => {
-    if (diffTime(openTime, new Date()) <= 0 && timer === 0) {
+    if (diffTime(openTime, new Date()) <= 0 && timer <= 0) {
       routerHelper.result();
       return;
     }
