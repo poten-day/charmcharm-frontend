@@ -20,7 +20,10 @@ const MainResult = (props: MainResultProps, ref: ForwardedRef<HTMLDivElement>) =
     <div className="flex flex-col text-center bg-white" ref={ref}>
       <h1 className="text-h2 font-BRBA_B my-[24px]">
         친구들이 말하는 <br />
-        <strong style={{ color: `${hex}` }}>{name}</strong>의 매력은?
+        <strong style={{ color: `${hex}` }} className="font-pretendard">
+          {name}
+        </strong>
+        의 매력은?
       </h1>
       <div className="relative">
         <Background className="w-full h-auto" style={{ fill: `${hex}` }} />
