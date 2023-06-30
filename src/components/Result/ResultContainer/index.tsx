@@ -39,7 +39,7 @@ const ResultContainer = () => {
   };
 
   return data ? (
-    <div className="bg-white">
+    <div className="bg-gray500 h-fit">
       <Header />
       <MainResult data={data} ref={mainResultRef} />
       <SubResult data={data.subQuestions} />
