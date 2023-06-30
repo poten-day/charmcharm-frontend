@@ -14,7 +14,7 @@ export const millisecondsToTime = (milliseconds: number) => {
 };
 
 export const updateTitleByTime = (targetTime: string) => {
-  const createTimeAfter5Minute = dayjs(targetTime).subtract(4, 'hour').add(5, 'minute').format();
+  const createTimeAfter5Minute = dayjs(targetTime).subtract(1, 'hour').add(10, 'minute').format();
   const targetTimeLast5Minute = dayjs(targetTime).subtract(5, 'minute').format();
   const currentTime = new Date();
   const diffEndTime = diffTime(targetTime, currentTime);
