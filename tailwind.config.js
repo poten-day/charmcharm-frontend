@@ -30,9 +30,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        pretendard: ['pretendard'],
-        BRBA_B: ['BRBA_B'],
-        NeoDunggeunmoPro: ['NeoDunggeunmoPro'],
+        pretendard: ['pretendard', 'Arial', 'system-ui', 'sans-serif'],
+        BRBA_B: ['BRBA_B', 'pretendard', 'Arial', 'system-ui', 'sans-serif'],
+        NeoDunggeunmoPro: ['NeoDunggeunmoPro', 'Arial', 'system-ui', 'sans-serif'],
       },
     },
   },
