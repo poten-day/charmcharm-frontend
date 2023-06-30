@@ -17,6 +17,10 @@ const ResultPageErrorFallback = ({ error }: { error: AxiosError<{ message: strin
       alert('존재하지 않는 유저입니다.');
       return routerHelper.main();
     }
+    if (error.response?.data.message === '아직 결과를 볼 수 없습니다.') {
+      alert('아직 결과를 볼 수 없습니다.');
+      return routerHelper.id();
+    }
 
     alert(error.response?.data.message);
   }, []);
