@@ -22,7 +22,6 @@ const router = createBrowserRouter([
       {
         path: '/:id/form',
         element: <FormPage />,
-        children: [],
       },
       {
         path: '/:id/form/success',
