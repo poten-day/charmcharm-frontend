@@ -49,16 +49,16 @@ export const handlers = [
     );
   }),
 
-  rest.get('/api/questions/:id', async (req, res, ctx) => {
+  rest.get('/api/questions/:id', async (_, res, ctx) => {
     return res(ctx.status(200), ctx.json(MOCK_QUESTIONS));
   }),
 
-  rest.post('/api/answers/:id', async (req, res, ctx) => {
+  rest.post('/api/answers/:id', async (_, res, ctx) => {
     const isFinished = diffTime(MOCK_USER_DATA[0].openTime, new Date()) < 0 ? true : false;
 
     return isFinished ? res(ctx.status(400), ctx.text('시간초과')) : res(ctx.status(200));
   }),
-  rest.get('/api/charmers/:id/results', async (req, res, ctx) => {
+  rest.get('/api/charmers/:id/results', async (_, res, ctx) => {
     return res(ctx.status(200), ctx.json(MOCK_RESULTS));
   }),
 ];
