@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { postCharmers } from '@/api';
+import { AxiosError } from 'axios';
+
 import Button from '@components/Common/Button';
 import Input from '@components/Common/Input';
 
@@ -9,7 +11,17 @@ const MAX_LENGTH = 5;
 
 const StartForm = () => {
   const navigate = useNavigate();
-  const { data, isSuccess, mutate } = useMutation(postCharmers);
+  const { mutate } = useMutation(postCharmers, {
+    onSuccess: (data) => {
+      const url = new URL(data.shareLink);
+      navigate(url.pathname);
+    },
+    onError: (res) => {
+      const error = res as AxiosError<{ message: string }>;
+      alert(error.response?.data.message || error.message);
+    },
+  });
+
   const [name, setName] = useState('');
 
   const onClickButton = () => mutate(name);
@@ -22,13 +34,6 @@ const StartForm = () => {
   };
 
   const isDisabled = name === '';
-
-  useEffect(() => {
-    if (data && isSuccess) {
-      const url = new URL(data.shareLink);
-      navigate(url.pathname);
-    }
-  }, [data, isSuccess]);
 
   return (
     <form
