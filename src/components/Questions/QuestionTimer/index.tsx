@@ -1,14 +1,11 @@
-import Timer from '@/components/Common/Timer';
-import useSetTimes from '@/hooks/useSetTimes';
-import { useUserStore } from '@/store/useUserStore';
 import { useEffect } from 'react';
+import Timer from '@components/Common/Timer';
+import useSetTimes from '@hooks/useSetTimes';
 
 const QuestionsTimer = ({ setTimeOver }: { setTimeOver: () => void }) => {
-  const { setTimes, timer } = useSetTimes();
-  const { user } = useUserStore();
+  const { timer } = useSetTimes();
 
   useEffect(() => {
-    setTimes(user.openTime);
     if (timer === 0) {
       setTimeOver();
     }

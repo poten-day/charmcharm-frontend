@@ -1,4 +1,4 @@
-import { millisecondsToTime } from '@/utils/date';
+import { millisecondsToTime } from '@utils/date';
 
 type TimerProps = {
   time: number;

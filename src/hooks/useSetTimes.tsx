@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
-import { diffTime } from '@/utils/date';
 import { useEffect } from 'react';
-import { useTimeStore } from '@/store/useTimeStore';
+import { diffTime } from '@utils/date';
+import { useTimeStore } from '@store/useTimeStore';
 
 const useSetTime = () => {
   const { finishedTime, setFinishedTime, timer, setTimer } = useTimeStore();
@@ -17,7 +17,7 @@ const useSetTime = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (timer > 0) {
-        setTimer(timer - 1);
+        setTimer(timer - 1000);
       }
       if (timer === 0) {
         clearInterval(interval);
