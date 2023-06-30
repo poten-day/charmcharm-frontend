@@ -1,5 +1,6 @@
 import useShareURL from '@/hooks/useShareURL';
 import { ReactComponent as Share } from '#/assets/images/icons/solar-share-linear.svg';
+import { memo } from 'react';
 
 type ShareURLProps = { url: string };
 
@@ -24,4 +25,4 @@ const ShareURL = ({ url }: ShareURLProps) => {
   );
 };
 
-export default ShareURL;
+export default memo(ShareURL);
