@@ -25,6 +25,11 @@ const ResultContainer = () => {
 
   const handleDownload = async () => {
     if (!mainResultRef.current) return;
+
+    if (navigator.userAgent.indexOf('KAKAOTALK') >= 0) {
+      alert('카카오톡 인앱에서는 작동이 안될 수 있습니다. 모바일 브라우저를 이용해주세요');
+    }
+
     try {
       const mainResult = mainResultRef.current;
       const canvas = await html2canvas(mainResult);
