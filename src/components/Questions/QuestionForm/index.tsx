@@ -31,7 +31,7 @@ const QuestionForm = ({ form, onClickNextButton }: QuestionFormType) => {
     }
   };
 
-  const replaceStr = (str: string) => str.split('\\r\\n');
+  const replaceStr = (str: string) => str.split('<br>');
 
   return (
     <>
