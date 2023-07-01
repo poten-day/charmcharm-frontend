@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require('tailwindcss/plugin');
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -36,5 +38,18 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities, theme }) {
+      addUtilities({
+        '.border-1-gray200': {
+          border: '1px solid',
+          borderColor: theme('colors.gray200'),
+        },
+        '.border-1-gray900': {
+          border: '1px solid',
+          borderColor: theme('colors.gray900'),
+        },
+      });
+    }),
+  ],
 };

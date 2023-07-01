@@ -9,7 +9,7 @@ const styleConfig = {
   div: {
     common: 'max-w-[480px] flex items-center justify-between gap-2',
     small: 'bg-gray200 py-[16px] px-[20px]',
-    large: 'border-[1px] border-gray200 rounded-[6px] p-[16px]',
+    large: 'border-1-gray200 rounded-[6px] p-[16px]',
   },
   icon: {
     small:

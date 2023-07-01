@@ -22,7 +22,7 @@ const TimeOverModal = ({ setTimeOver }: { setTimeOver: Dispatch<SetStateAction<b
       onClick={onClickOutsideCloseModal}
       ref={backgroundRef}
     >
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[320px] bg-slate-300 text-center rounded-[8px] border border-gray200 bg-white z-999 p-[20px]">
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[320px] bg-slate-300 text-center rounded-[8px] border-1-gray200 bg-white z-999 p-[20px]">
         <button type="button" className="absolute right-[20px]" onClick={() => setTimeOver(false)}>
           <CloseIcon className="fill-gray500" />
         </button>

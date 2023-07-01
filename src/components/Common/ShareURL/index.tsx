@@ -12,7 +12,7 @@ const ShareURL = ({ url }: ShareURLProps) => {
         type="text"
         defaultValue={url}
         disabled
-        className="w-full p-[16px] rounded-[6px] border border-gray200 disabled:bg-white"
+        className="w-full p-[16px] rounded-[6px] border-1-gray200 disabled:bg-white"
       />
       <button
         type="button"

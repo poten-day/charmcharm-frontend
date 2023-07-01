@@ -9,7 +9,7 @@ export interface ButtonProps {
 }
 
 const styleConfig = {
-  common: 'py-[16px] border border-gray900 rounded-[6px] text-lgSemibold',
+  common: 'py-[16px] border-1-gray900 rounded-[6px] text-lgSemibold',
   white: 'bg-white text-gray900',
   black: 'bg-gray900 text-white',
   disabled: 'disabled:bg-gray200 disabled:border-gray200 disabled:text-gray500',
