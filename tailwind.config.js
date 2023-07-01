@@ -49,6 +49,12 @@ export default {
           border: '1px solid',
           borderColor: theme('colors.gray900'),
         },
+        '.radius-6': {
+          borderRadius: '6px',
+        },
+        '.radius-8': {
+          borderRadius: '8px',
+        },
       });
     }),
   ],

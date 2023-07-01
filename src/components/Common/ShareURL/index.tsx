@@ -12,12 +12,12 @@ const ShareURL = ({ url }: ShareURLProps) => {
         type="text"
         defaultValue={url}
         disabled
-        className="w-full p-[16px] rounded-[6px] border-1-gray200 disabled:bg-white"
+        className="w-full p-[16px] radius-6 border-1-gray200 disabled:bg-white"
       />
       <button
         type="button"
         onClick={() => executeShareURL(url)}
-        className="bg-gray200 p-[14px] rounded-[6px]"
+        className="bg-gray200 p-[14px] radius-6"
       >
         <Share className="w-[28px] h-[28px] stroke-gray900" />
       </button>
