@@ -27,10 +27,7 @@ const MainResult = (props: MainResultProps, ref: ForwardedRef<HTMLDivElement>) =
       </h1>
       <div className="relative">
         <Background className="w-full h-auto" style={{ fill: `${hex}` }} />
-        <p
-          className="absolute transform -translate-x-1/2 -translate-y-1/2 text-h2 font-BRBA_B top-1/2 left-1/2"
-          style={{ color: `${hex}` }}
-        >
+        <p className="absolute-center text-h2 font-BRBA_B" style={{ color: `${hex}` }}>
           {mainConcept.answerName}
         </p>
       </div>
@@ -43,7 +40,7 @@ const MainResult = (props: MainResultProps, ref: ForwardedRef<HTMLDivElement>) =
       <ul className="py-[24px] px-[20px]">
         <li className="mb-[24px]">
           <p className="text-h3 font-BRBA_B mb-[12px]">친구들이 말하는 너는</p>
-          <div className="flex flex-col justify-center gap-[12px]">
+          <div className="flex flex-col justify-center items-center gap-[12px]">
             {respect.answerResults.map((concept) => (
               <p
                 key={`respect-${concept.answerId}`}
