@@ -24,9 +24,11 @@ const Button = ({ color = 'black', size = 'large', ...props }: ButtonProps) => {
       onClick={onClick}
       disabled={disabled}
       className={`
+      ${styleConfig.common}
+      ${styleConfig.disabled}
       ${color === 'white' ? styleConfig.white : styleConfig.black}
       ${size === 'large' ? 'w-full max-w-[480px]' : 'w-1/2 max-w-[240px]'}
-      ${styleConfig.common} ${styleConfig.disabled}`}
+      `}
     >
       {label}
     </button>
