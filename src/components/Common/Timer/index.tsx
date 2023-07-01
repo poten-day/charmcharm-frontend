@@ -26,14 +26,17 @@ const styleConfig = {
 const Timer = ({ time, size = 'large' }: TimerProps) => {
   return (
     <div
-      className={`${styleConfig.div.common} 
-      ${size === 'small' ? styleConfig.div.small : styleConfig.div.large}`}
+      className={`
+      ${styleConfig.div.common} 
+      ${size === 'small' ? styleConfig.div.small : styleConfig.div.large}
+      `}
     >
       <span className={size === 'large' ? styleConfig.icon.large : styleConfig.icon.small}>⏰</span>
       <p
-        className={`${styleConfig.text.common} ${
-          size === 'small' ? styleConfig.text.small : styleConfig.text.large
-        }`}
+        className={`
+        ${styleConfig.text.common} 
+        ${size === 'small' ? styleConfig.text.small : styleConfig.text.large}
+        `}
       >
         {millisecondsToTime(time).format('HH:mm:ss')}
       </p>
