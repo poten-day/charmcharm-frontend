@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react';
 import { initialize, mswLoader } from 'msw-storybook-addon';
-import '../src/index.css';
+import './index.css';
 
 initialize({ onUnhandledRequest: 'bypass' });
 
