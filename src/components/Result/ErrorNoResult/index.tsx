@@ -10,7 +10,7 @@ const ErrorNoResult = () => {
   return (
     <>
       <Header />
-      <div className="text-center flex flex-col gap-[40px] py-[40px] px-[20px] bg-white">
+      <div className="text-center flex flex-col gap-[40px] py-[40px] px-[20px] bg-white max-w-[480px]">
         <div>
           <p className="text-h1 font-BRBA_B text-gray900 mb-[20px]">
             <b className="text-primary500">ㅠ.ㅠ</b> <br /> 제한 시간이 <br /> 종료되었어요.
