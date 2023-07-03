@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMutation } from '@tanstack/react-query';
-import { postCharmers } from '@/api';
+
 import { AxiosError } from 'axios';
+import { useMutation } from '@tanstack/react-query';
+import { postCharmers } from '@api/index';
 
 import Button from '@components/Common/Button';
 import Input from '@components/Common/Input';
