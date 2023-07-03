@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import useSetTimes from '@/hooks/useSetTimes';
-import { useUserStore } from '@/store/useUserStore';
+import useSetTimes from '@hooks/useSetTimes';
+import { useUserStore } from '@store/useUserStore';
 
 import ShareURL from '@components/Common/ShareURL';
 import Header from '@components/Common/Header';

@@ -1,5 +1,5 @@
-import CountdownArea from '@/components/CountdownArea';
 import { ErrorBoundary } from 'react-error-boundary';
+import CountdownArea from '@components/CountdownArea';
 import IdPageErrorFallback from './ErrorBoundary';
 
 const IdPage = () => {

@@ -1,9 +1,8 @@
-import { AxiosError } from 'axios';
-import { Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
-
-import ErrorNoResult from '@components/Result/ErrorNoResult';
+import { Navigate } from 'react-router-dom';
+import { AxiosError } from 'axios';
 import useSetRouter from '@hooks/useSetRouter';
+import ErrorNoResult from '@components/Result/ErrorNoResult';
 
 const ResultPageErrorFallback = ({ error }: { error: AxiosError<{ message: string }> }) => {
   const { routerHelper } = useSetRouter();

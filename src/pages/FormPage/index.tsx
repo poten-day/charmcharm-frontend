@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import { useUserStore } from '@/store/useUserStore';
-import useSetRouter from '@/hooks/useSetRouter';
+import useSetRouter from '@hooks/useSetRouter';
+import { useUserStore } from '@store/useUserStore';
 import QuestionsContainer from '@components/Questions/QuestionsContainer';
 
 const FormPage = () => {

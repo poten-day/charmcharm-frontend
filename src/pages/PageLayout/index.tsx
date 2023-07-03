@@ -1,7 +1,7 @@
-import ScrollToTop from '@/ScrollToTop';
-import Loading from '@/components/Common/Loading';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import ScrollToTop from '@/ScrollToTop';
+import Loading from '@components/Common/Loading';
 
 const PageLayout = () => {
   return (
