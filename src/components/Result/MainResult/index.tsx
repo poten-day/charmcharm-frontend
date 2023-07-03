@@ -1,7 +1,7 @@
-import { AnswersResultType, CharmerResultsType } from '@/api/types';
-import { ReactComponent as Background } from '#/assets/images/vactor/result-vactor.svg';
-import { TagStyleConfig } from '@/utils/styleConfig';
 import { ForwardedRef, forwardRef } from 'react';
+import { AnswersResultType, CharmerResultsType } from '@api/types';
+import { TagStyleConfig } from '@utils/styleConfig';
+import { ReactComponent as Background } from '#/assets/images/vactor/result-vactor.svg';
 
 interface MainResultProps {
   data: CharmerResultsType;

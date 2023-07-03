@@ -1,16 +1,16 @@
-import { getCharmersResult } from '@/api';
-import { useQuery } from '@tanstack/react-query';
+import { useRef } from 'react';
 import { useParams } from 'react-router-dom';
-import useShareURL from '@/hooks/useShareURL';
+import { useQuery } from '@tanstack/react-query';
+import { getCharmersResult } from '@api/index';
 
 import html2canvas from 'html2canvas';
 import saveAs from 'file-saver';
+import useShareURL from '@hooks/useShareURL';
 
 import Button from '@components/Common/Button';
 import Header from '@components/Common/Header';
 import MainResult from '@components/Result/MainResult';
 import SubResult from '@components/Result/SubResult';
-import { useRef } from 'react';
 
 const ResultContainer = () => {
   const params = useParams();
