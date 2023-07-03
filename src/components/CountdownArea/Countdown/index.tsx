@@ -7,7 +7,7 @@ import { diffTime, updateTitleByTime } from '@utils/date';
 
 import ShareURL from '@components/Common/ShareURL';
 import Timer from '@components/Common/Timer';
-import Button from '@/components/Common/Button';
+import Button from '@components/Common/Button';
 
 const Countdown = ({ data }: { data: CharmersExtendsType }) => {
   const { routerHelper } = useSetRouter();
