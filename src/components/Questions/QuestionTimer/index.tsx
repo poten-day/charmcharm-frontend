@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import Timer from '@components/Common/Timer';
 import useSetTimes from '@hooks/useSetTimes';
+import Timer from '@components/Common/Timer';
 
 const QuestionsTimer = ({ setTimeOver }: { setTimeOver: () => void }) => {
   const { timer } = useSetTimes();

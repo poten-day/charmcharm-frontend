@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { getQuestionForm } from '@/api';
-import { useQuery } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
+
+import { useQuery } from '@tanstack/react-query';
+import { getQuestionForm } from '@api/index';
+
 import QuestionsTimer from '@components/Questions/QuestionTimer';
 import QuestionFormList from '@components/Questions/QuestionFormList';
 import TimeOverModal from '@components/Questions/TimeOverModal';

@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
+
+import { AxiosError } from 'axios';
 import { useMutation } from '@tanstack/react-query';
-import { postAnswersForm } from '@/api';
-import { CharmersQuestionFormType } from '@/api/types';
-import useSetRouter from '@/hooks/useSetRouter';
-import { useUserStore } from '@/store/useUserStore';
+import { postAnswersForm } from '@api/index';
+import { CharmersQuestionFormType } from '@api/types';
+
+import useSetRouter from '@hooks/useSetRouter';
+import { useUserStore } from '@store/useUserStore';
 
 import QuestionForm from '@components/Questions/QuestionForm';
-import { AxiosError } from 'axios';
 
 const QuestionFormList = ({
   data,

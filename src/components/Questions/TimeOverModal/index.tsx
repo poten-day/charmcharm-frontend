@@ -1,8 +1,9 @@
-import Button from '@/components/Common/Button';
-import useSetRouter from '@/hooks/useSetRouter';
-import { useUserStore } from '@/store/useUserStore';
-import { ReactComponent as CloseIcon } from '#/assets/images/icons/mingcute-close-line.svg';
 import { Dispatch, SetStateAction, useRef } from 'react';
+import useSetRouter from '@hooks/useSetRouter';
+import { useUserStore } from '@store/useUserStore';
+
+import Button from '@components/Common/Button';
+import { ReactComponent as CloseIcon } from '#/assets/images/icons/mingcute-close-line.svg';
 
 const TimeOverModal = ({ setTimeOver }: { setTimeOver: Dispatch<SetStateAction<boolean>> }) => {
   const { user } = useUserStore();

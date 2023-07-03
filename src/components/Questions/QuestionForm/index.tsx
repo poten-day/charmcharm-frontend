@@ -1,9 +1,10 @@
-import { CharmersQuestionFormType } from '@/api/types';
+import { CharmersQuestionFormType } from '@api/types';
+import useSetQuestionsForm from '@hooks/useSetQuestionForm';
 import { useUserStore } from '@store/useUserStore';
-import useSetQuestionsForm from '@/hooks/useSetQuestionForm';
+
 import Button from '@components/Common/Button';
-import CheckboxAnswers from './Answers/CheckboxAnswers';
-import RadioAnswers from './Answers/RadioAnswers';
+import CheckboxAnswers from '@components/Questions/QuestionForm/Answers/CheckboxAnswers';
+import RadioAnswers from '@components/Questions/QuestionForm/Answers/RadioAnswers';
 
 type QuestionFormType = {
   form: CharmersQuestionFormType;

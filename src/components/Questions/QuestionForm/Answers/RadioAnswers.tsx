@@ -1,5 +1,5 @@
-import { CharmersQuestionAnswersType } from '@/api/types';
-import { TagStyleConfig } from '@/utils/styleConfig';
+import { CharmersQuestionAnswersType } from '@api/types';
+import { TagStyleConfig } from '@utils/styleConfig';
 
 type RadioAnswersType = {
   answers: CharmersQuestionAnswersType[];
