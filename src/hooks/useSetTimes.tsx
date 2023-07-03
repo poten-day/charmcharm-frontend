@@ -19,7 +19,7 @@ const useSetTime = () => {
       if (timer > 0) {
         setTimer(timer - 1000);
       }
-      if (timer === 0) {
+      if (timer <= 0) {
         clearInterval(interval);
       }
     }, 1000);
