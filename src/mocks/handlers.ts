@@ -23,7 +23,7 @@ export const handlers = [
     const { name } = await req.json();
     const responseData = {
       name,
-      openTime: dayjs().add(4, 'hour').format(),
+      openTime: dayjs().add(1, 'hour').format(),
       shareLink: `https://charmcharm.me/${id}`,
     };
     MOCK_USER_DATA.push(responseData);
